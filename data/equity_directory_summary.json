@@ -1,0 +1,29 @@
+{
+  "raw_source_records": 313,
+  "deduplicated_contact_routes": 235,
+  "unique_funding_vehicles": 180,
+  "public_phone_email_pairs": 119,
+  "public_emails": 166,
+  "public_phones": 148,
+  "named_contacts": 86,
+  "named_contacts_with_pairs": 72,
+  "published_check500k_overlap": 82,
+  "cash_500k_verified": 0,
+  "accepted_500k_for_9_3": 0,
+  "duplicates_merged": 23,
+  "excluded_rows": 55,
+  "source_defects": [],
+  "by_category": {
+    "Angel group / syndication route": 60,
+    "Corporate equity firm": 30,
+    "Family investment firm": 32,
+    "Named investor / firm principal": 76,
+    "Operating / strategic equity": 6,
+    "Venture / proptech firm": 31
+  },
+  "published_check500k_funding_vehicles": 62,
+  "published_group500k_routes": 7,
+  "named_email_and_business_phone_pairs": 27,
+  "funding_vehicles_with_phone_email": 65,
+  "contact_routes_without_email_or_phone": 40
+}

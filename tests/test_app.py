@@ -115,9 +115,12 @@ class CRMTests(unittest.TestCase):
     def test_filters_counts_and_csv_formula_safety(self):
         self.setup_admin()
         self.create_lead(company="=HYPERLINK(\"evil\")",state="TX",fit="strong",capital_verification="documented",cash_capacity=500000,collateral_requirement="unsecured")
-        self.create_lead(company="Mortgage Provider",email="other@mortgage.example",state="AZ",fit="potential",collateral_requirement="First lien on property")
+        self.create_lead(company="Mortgage Provider",email="other@mortgage.example",state="AZ",fit="potential",collateral_requirement="First lien on property",tags=["equity-500k-9.3"])
         status,filtered=self.request("GET","/api/leads?state=TX&contact_complete=1&capital_min=500000&capital_verification=documented")
         self.assertEqual(filtered["total"],1)
+        cohort=self.request("GET","/api/leads?q=equity-500k-9.3")[1]
+        self.assertEqual(cohort["total"],1)
+        self.assertEqual(cohort["items"][0]["company"],"Mortgage Provider")
         stats=self.request("GET","/api/stats")[1]
         self.assertEqual(stats["total"],2)
         self.assertEqual(stats["contact_complete"],2)
@@ -134,6 +137,39 @@ class CRMTests(unittest.TestCase):
         self.assertTrue(rows[0]["company"].startswith("'="))
         self.assertIn("attachment",headers["Content-Disposition"])
         self.assertEqual(self.request("GET","/api/leads?q=%25")[1]["total"],0)
+
+    def test_named_investor_import_preserves_people_and_company_routes(self):
+        self.setup_admin()
+        firm = {"company":"Shared Investment Firm", "website":"https://investors.example",
+                "email":"info@investors.example", "phone":"212-555-0180"}
+        status, company_route = self.request("POST","/api/leads",firm)
+        self.assertEqual(status,201,company_route)
+        named = [{**firm,"name":name,"metadata":{"record_kind":"named_investor"}}
+                 for name in ("Alice Smith","Bob Jones")]
+        status, result = self.request("POST","/api/import",{"rows":named})
+        self.assertEqual(status,200,result)
+        self.assertEqual((result["inserted"],result["merged"],result["invalid"]),(2,0,0))
+        contacts = self.request("GET","/api/leads")[1]
+        self.assertEqual(contacts["total"],3)
+        self.assertEqual({row["name"] for row in contacts["items"]},{"","Alice Smith","Bob Jones"})
+        alice = next(row for row in contacts["items"] if row["name"] == "Alice Smith")
+        self.request("PATCH",f"/api/leads/{alice['id']}",{"stage":"terms"})
+        repeated = {**named[0],"name":" ALICE SMITH ","website":"https://www.investors.example/team",
+                    "email":"alice@investors.example","source_url":"https://investors.example/team/alice"}
+        status, result = self.request("POST","/api/import",{"rows":[repeated]})
+        self.assertEqual(status,200,result)
+        self.assertEqual((result["inserted"],result["merged"],result["invalid"]),(0,1,0))
+        self.assertEqual(self.request("GET","/api/leads")[1]["total"],3)
+        updated = self.request("GET",f"/api/leads/{alice['id']}")[1]
+        self.assertEqual(updated["stage"],"terms")
+        self.assertEqual(updated["source_url"],repeated["source_url"])
+        # Untagged imports retain the existing company-route behavior.
+        result = self.request("POST","/api/import",{"rows":[firm]})[1]
+        self.assertEqual((result["inserted"],result["merged"],result["invalid"]),(0,1,0))
+        self.assertEqual(self.request("GET","/api/leads")[1]["total"],3)
+        # A named opt-in without an actual name cannot silently become a firm row.
+        invalid = self.request("POST","/api/import",{"rows":[{**firm,"metadata":{"record_kind":"named_investor"}}]})[1]
+        self.assertEqual((invalid["inserted"],invalid["merged"],invalid["invalid"]),(0,0,1))
 
     def test_pipeline_notes_tasks_and_audit(self):
         self.setup_admin()

@@ -85,3 +85,9 @@ runtime/                   Your local database and backups, created at first lau
 ```
 
 Run the checks with `python3 -m unittest discover -s tests -v`. See `docs/API.md` for the integration API. The application is intended for a small internal team; it is not a multitenant subscription service.
+
+## Corporate equity investor update
+
+The targeted $500K-for-9.3% research pass adds **180 distinct funding vehicles/group routes** and **86 named professionals** across **235 research/contact records**. **119 records** have both public phone and email, representing **65 distinct vehicles**. Cash availability and acceptance of the proposed ownership are unverified.
+
+The new cohort loads automatically from `data/equity_directory.jsonl`; search `equity-500k-9.3` in the CRM. Different named principals sharing a firm inbox are retained separately. See [equity methodology](docs/EQUITY_RESEARCH.md), [investor workbook](downloads/CapitalForge_Equity_Investors.xlsx), [phone/email contacts](downloads/CapitalForge_Equity_Phone_Email.csv) and [named professionals](downloads/CapitalForge_Named_Investors.csv).

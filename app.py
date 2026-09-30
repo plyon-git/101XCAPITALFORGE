@@ -102,7 +102,25 @@ def website_host(value):
     return (urlsplit(url if "://" in url else "https://" + url).hostname or "").lower().removeprefix("www.")
 
 
+def is_named_investor(lead):
+    metadata = lead.get("metadata") or {}
+    if isinstance(metadata, str):
+        try:
+            metadata = json.loads(metadata)
+        except (TypeError, json.JSONDecodeError):
+            return False
+    return isinstance(metadata, dict) and metadata.get("record_kind") == "named_investor"
+
+
 def dedup_key(lead):
+    if is_named_investor(lead):
+        name = str(lead.get("name") or "").strip()
+        if not name:
+            raise ApiError(400, "Named investor records require a contact name")
+        # A shared firm inbox or mainline identifies a route, not an individual.
+        person = "".join(char for char in name.casefold() if char.isalnum()) or name.casefold()
+        identity = [canonical_company(lead.get("company")), person, website_host(lead.get("website"))]
+        return "named_investor:" + hashlib.sha256(json_text(identity).encode()).hexdigest()
     email = email_normalize(lead.get("email"))
     if email:
         return "email:" + email
@@ -331,13 +349,15 @@ class App:
         row = db.execute("SELECT * FROM leads WHERE dedup_key=?", (key,)).fetchone()
         if row:
             return row
+        if is_named_investor(data):
+            return None
         if data.get("email"):
-            row = db.execute("SELECT * FROM leads WHERE lower(email)=?", (data["email"],)).fetchone()
-            if row:
-                return row
+            for row in db.execute("SELECT * FROM leads WHERE lower(email)=?", (data["email"],)):
+                if not is_named_investor(dict(row)):
+                    return row
         if data.get("company") and data.get("website"):
             for row in db.execute("SELECT * FROM leads WHERE lower(company)=lower(?)", (data["company"],)):
-                if website_host(row["website"]) == website_host(data["website"]):
+                if not is_named_investor(dict(row)) and website_host(row["website"]) == website_host(data["website"]):
                     return row
         return None
 
@@ -524,9 +544,9 @@ class Handler(BaseHTTPRequestHandler):
         clauses, params = [], []
         q = query.get("q", [""])[0].strip()[:200]
         if q:
-            clauses.append("(company LIKE ? ESCAPE '\\' OR name LIKE ? ESCAPE '\\' OR email LIKE ? ESCAPE '\\' OR phone LIKE ? ESCAPE '\\' OR state LIKE ? ESCAPE '\\' OR lender_type LIKE ? ESCAPE '\\')")
+            clauses.append("(company LIKE ? ESCAPE '\\' OR name LIKE ? ESCAPE '\\' OR email LIKE ? ESCAPE '\\' OR phone LIKE ? ESCAPE '\\' OR state LIKE ? ESCAPE '\\' OR lender_type LIKE ? ESCAPE '\\' OR tags LIKE ? ESCAPE '\\')")
             escaped = q.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
-            params.extend(["%" + escaped + "%"] * 6)
+            params.extend(["%" + escaped + "%"] * 7)
         for key in ("stage", "fit", "state", "capital_verification", "verification_status", "lender_type"):
             value = query.get(key, [""])[0]
             if value:
@@ -1045,11 +1065,16 @@ def main():
     parser.add_argument("--port",type=int,default=int(os.environ.get("CAPITALFORGE_PORT","8787")))
     parser.add_argument("--data-dir",default=os.environ.get("CAPITALFORGE_DATA_DIR",str(ROOT/"runtime")))
     parser.add_argument("--seed-file",default=str(ROOT/"data"/"data_lenders.jsonl"))
+    parser.add_argument("--equity-seed-file",default=str(ROOT/"data"/"equity_directory.jsonl"),help="Optional equity investor research seed; use an empty path to skip")
     parser.add_argument("--open-browser",action="store_true",help="Open the local portal after startup")
     args=parser.parse_args()
     allowed=[h.strip().lower() for h in os.environ.get("CAPITALFORGE_ALLOWED_HOSTS","localhost,127.0.0.1,::1").split(",") if h.strip()]
     app=App(args.data_dir,allowed,os.environ.get("CAPITALFORGE_SECURE_COOKIES")=="1",os.environ.get("CAPITALFORGE_BOOTSTRAP_TOKEN"))
     report=app.seed(args.seed_file)
+    if args.equity_seed_file:
+        equity_report=app.seed(args.equity_seed_file)
+        for key in ("inserted", "merged", "invalid"):
+            report[key]+=equity_report[key]
     server=create_server(app,args.host,args.port)
     print(f"CapitalForge by 101XVC\nOpen http://{args.host}:{args.port}/app\nData: {app.data_dir}\nSeed import: {report['inserted']} added, {report['merged']} merged, {report['invalid']} invalid",flush=True)
     if args.host not in ("127.0.0.1","localhost","::1"):

@@ -1,0 +1,30 @@
+{
+  "family_offices.jsonl": {
+    "records": 26,
+    "sha256": "2946159eca6202bbe64a26c70747d008cc062371d1e9ba881bb071fadf44d166"
+  },
+  "family_offices_addendum.jsonl": {
+    "records": 7,
+    "sha256": "0a75dd91b760fac3783fe00a05c9ee723803f486846f39e58c57741a0a2c485b"
+  },
+  "individual_investors.FINAL.jsonl": {
+    "records": 88,
+    "sha256": "2203a7b71d4b579de2e029196d002a3580fbeaa149b8d9fa85a65a1411e6872a"
+  },
+  "proptech_strategic.jsonl": {
+    "records": 50,
+    "sha256": "01561afd9591cc79d4bb34369a708c856d2bdac37cf49421f39888b0536782f4"
+  },
+  "small_check_equity_FINAL.jsonl": {
+    "records": 32,
+    "sha256": "00559aa1599522ac092571bcd59cf7f36a10b8f553c661f2311d322ca7be20b1"
+  },
+  "operating_strategic.jsonl": {
+    "records": 10,
+    "sha256": "519776a1c93faa8f06033f058355c5ce79968630583a7865c6d06b9ccd7bd32a"
+  },
+  "angel_groups.jsonl": {
+    "records": 100,
+    "sha256": "7ad2a79d7a4575a464217d971f286daabcd3d452609006e67ad46feaa3f8beb5"
+  }
+}
