@@ -1,0 +1,30 @@
+{
+  "records": 380,
+  "unique_crds": 380,
+  "usable_public_email_phone_pairs": 173,
+  "usable_public_emails": 173,
+  "excluded_contacts": 2,
+  "excluded_roles": {
+    "legal_only": 2
+  },
+  "usable_roles": {
+    "Compliance/regulatory contact": 82,
+    "Published adviser brochure professional contact": 91
+  },
+  "brochure_status_counts": {
+    "no_acceptable_email_in_first_three_pages": 153,
+    "publicly_published_not_delivery_tested": 173,
+    "excluded_legal_only": 2,
+    "brochure_inaccessible": 14,
+    "no_public_brochure": 38
+  },
+  "cash_capacity_verified": 0,
+  "source_pages": "first three public SEC Part2A brochure pages only",
+  "sha256": "d5599c85bffa828a4746c5692099cf5f4519d95c74e16aa3a393f6da5648bd7c",
+  "bytes": 1784366,
+  "worker_gracefully_stopped": true,
+  "source_file": "research/sec_brochure_frontend_FINAL.jsonl",
+  "finalized_at": "2026-09-30T03:59:00+00:00",
+  "source_excerpt_max_words": 25,
+  "source_excerpts_shortened": 155
+}

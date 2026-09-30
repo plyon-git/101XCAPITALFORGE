@@ -1,0 +1,94 @@
+{
+  "snapshot_date": "2026-09-30",
+  "assembly_inputs": [
+    "fit_leads.jsonl",
+    "sbic_leads.jsonl",
+    "bulk_primary_AUDITED.jsonl",
+    "sec_enriched_final.jsonl",
+    "supplement_lenders_cleaned_v2.jsonl",
+    "supplement_aacfb_funders_cleaned.jsonl",
+    "pld_backend_batch.FINAL.jsonl",
+    "pld_supplement_batch.FINAL.jsonl",
+    "pld_bulk_FROZEN_20260930T035900.FINAL.jsonl"
+  ],
+  "brochure_inputs": [
+    "sec_leads.jsonl",
+    "sec_brochure_leads.jsonl",
+    "sec_brochure_frontend_FINAL.jsonl"
+  ],
+  "files": [
+    {
+      "file": "bulk_primary_AUDITED.jsonl",
+      "bytes": 1680104,
+      "sha256": "329259d522b5b6bf075a7715e626ae66473b1afef58cceefd397445a4d1c7877",
+      "rows": 999
+    },
+    {
+      "file": "fit_leads.jsonl",
+      "bytes": 120347,
+      "sha256": "eba95a393c7eb5c6a5de2f823f1b260b1d0a7f51c998053019f121154da14099",
+      "rows": 89
+    },
+    {
+      "file": "pld_backend_batch.FINAL.jsonl",
+      "bytes": 929386,
+      "sha256": "d3170be894cdcbb92593c7cdb89c7b1bac4ccae725192cd48e2c40f39faf9a07",
+      "rows": 464
+    },
+    {
+      "file": "pld_bulk_FROZEN_20260930T035900.FINAL.jsonl",
+      "bytes": 1316778,
+      "sha256": "5d2cdcb84f96ed2c14db4605394f601a26d685f475023839cdc313b054697fd0",
+      "rows": 675
+    },
+    {
+      "file": "pld_supplement_batch.FINAL.jsonl",
+      "bytes": 863949,
+      "sha256": "1e051dd1829c733daeb80bb5f68246145f079628fdbdae5105a1203fccbdd583",
+      "rows": 493
+    },
+    {
+      "file": "sbic_leads.jsonl",
+      "bytes": 360609,
+      "sha256": "58913c9637cc5f9aa0c6f5ad53267f9a1089d896fbe5996579c5ccf2d0bff5b5",
+      "rows": 183
+    },
+    {
+      "file": "sec_brochure_frontend_FINAL.jsonl",
+      "bytes": 1784366,
+      "sha256": "d5599c85bffa828a4746c5692099cf5f4519d95c74e16aa3a393f6da5648bd7c",
+      "rows": 380
+    },
+    {
+      "file": "sec_brochure_leads.jsonl",
+      "bytes": 648792,
+      "sha256": "02fb4deab1966bd343469cac0506da98393cbc868e74fed3efd5038726070bba",
+      "rows": 987
+    },
+    {
+      "file": "sec_enriched_final.jsonl",
+      "bytes": 13310024,
+      "sha256": "d8287f5239f3b752b043e88a88867505ef86f17ca6c6bc01287f448d8a177692",
+      "rows": 3825
+    },
+    {
+      "file": "sec_leads.jsonl",
+      "bytes": 12797280,
+      "sha256": "abe0608fa7eac8553f85254add183b3d394eaa824e5a64a9d6340d4179d3d8bb",
+      "rows": 3825
+    },
+    {
+      "file": "supplement_aacfb_funders_cleaned.jsonl",
+      "bytes": 79221,
+      "sha256": "960974820c4bade6c5a3dce728e2632b54ea4479c8f55f38983046a00ac7aaee",
+      "rows": 61
+    },
+    {
+      "file": "supplement_lenders_cleaned_v2.jsonl",
+      "bytes": 885987,
+      "sha256": "7de835038e46e91856ad979d251e96cd7eb17597d3ba0b02900b1505f62233a2",
+      "rows": 367
+    }
+  ],
+  "limitations": "Published contacts only; available cash and deal suitability unverified. Collection intentionally frozen after the requested minimum public contact count was reached."
+}

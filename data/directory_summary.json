@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-09-30T04:02:57.220341+00:00",
+  "total_distinct_prospects": 6563,
+  "public_phone_and_email": 3089,
+  "public_phone_and_email_excluding_recognized_bank_candidates": 3077,
+  "public_phone": 5485,
+  "public_email": 3254,
+  "verified_500k_available_cash": 0,
+  "fully_qualified_for_deal": 0,
+  "source_rows": 7156,
+  "merged_duplicate_records": 592,
+  "excluded_missing_source": 0,
+  "excluded_irrelevant_records": 1,
+  "research_exclusions": [
+    {
+      "company": "CAPITAL COMMERCIAL RE GROUP",
+      "reason": "Commercial property brokerage, sales and leasing service; no financing product observed.",
+      "dataset": "pld_backend_batch.FINAL.jsonl"
+    }
+  ],
+  "categories": {
+    "working_capital": 19,
+    "unsecured_business": 29,
+    "revenue_based": 20,
+    "contract_finance_advisor": 2,
+    "unsecured_real_estate_business": 2,
+    "contract_financing": 6,
+    "contract_and_receivables": 1,
+    "factoring_receivables": 50,
+    "real_estate_fund_manager": 705,
+    "private_credit_manager_research": 269,
+    "sbic_private_credit_equity": 167,
+    "equity_manager_research": 2644,
+    "private_credit_equity": 2,
+    "family_office_equity": 1,
+    "private_credit": 1,
+    "business_finance_provider": 451,
+    "private_real_estate_or_finance_directory_member": 85,
+    "equipment_finance_funding_source": 90,
+    "private_real_estate_lender": 1911,
+    "bank_or_bank_affiliated_finance_candidate": 21,
+    "business_finance": 12,
+    "term_loan": 1,
+    "commercial_finance_broker_referral": 5,
+    "research_finance_role_unconfirmed": 1,
+    "commercial_finance_broker": 5,
+    "private_money_individual": 3,
+    "property_secured_lender": 60
+  },
+  "source_roles": {
+    "mandate_and_direct_funding_status_unconfirmed": 4146,
+    "nonbank_status_unconfirmed": 726,
+    "bank_or_bank_affiliated_financier": 20,
+    "private_nonbank_lender_directory_claim": 1627,
+    "association_funding_source_directory_claim": 33,
+    "financing_broker_or_intermediary": 10,
+    "traditional_bank_or_credit_union_candidate": 1
+  },
+  "sources": {
+    "fit_leads.jsonl": {
+      "source_rows": 89
+    },
+    "sbic_leads.jsonl": {
+      "source_rows": 183
+    },
+    "bulk_primary_AUDITED.jsonl": {
+      "source_rows": 999
+    },
+    "sec_enriched_final.jsonl": {
+      "source_rows": 3825
+    },
+    "supplement_lenders_cleaned_v2.jsonl": {
+      "source_rows": 367
+    },
+    "supplement_aacfb_funders_cleaned.jsonl": {
+      "source_rows": 61
+    },
+    "pld_backend_batch.FINAL.jsonl": {
+      "source_rows": 464
+    },
+    "pld_supplement_batch.FINAL.jsonl": {
+      "source_rows": 493
+    },
+    "pld_bulk_FROZEN_20260930T035900.FINAL.jsonl": {
+      "source_rows": 675
+    }
+  },
+  "non_funding_mailboxes_removed": 7,
+  "scope": "Public-source debt and equity capital research prospects. Program capacity and reported fund assets are not available cash. Contacts are published, not email-deliverability tested. Deal fit has not been confirmed."
+}

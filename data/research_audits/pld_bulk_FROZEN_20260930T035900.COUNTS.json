@@ -1,0 +1,22 @@
+{
+  "frozen_at": "2026-09-30T03:59:00.237807+00:00",
+  "assigned": 2545,
+  "processed": 681,
+  "included": 675,
+  "excluded": 6,
+  "remaining_or_in_flight": 1864,
+  "phones": 229,
+  "emails": 227,
+  "phone_email_pairs_before_root_audit": 175,
+  "source_roles": {
+    "nonbank_status_unconfirmed": 209,
+    "private_nonbank_lender_directory_claim": 458,
+    "financing_broker_or_intermediary": 3,
+    "traditional_bank_or_credit_union_candidate": 5
+  },
+  "files": {
+    "final": "research/pld_bulk_FROZEN_20260930T035900.FINAL.jsonl",
+    "exclusions": "research/pld_bulk_FROZEN_20260930T035900.EXCLUSIONS.jsonl",
+    "resume": "research/pld_bulk_FROZEN_20260930T035900.RESUME.json"
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "company": "Goldleaf Investment Fund I",
+    "cohort": "supplement_leads.jsonl",
+    "hold_reason": "Primary email points to abandoned demo contact-page template, not the firm. Cached real contact page publishes company-domain replacement.",
+    "recommended_action": "replace_primary_email_and_email_source_url",
+    "old_email": "brandon@consulting.com",
+    "email": "andy@goldleafinvestmentfund.com",
+    "phone": "904-557-6191",
+    "primary_source_url": "https://goldleafinvestmentfund.com/contact-us-2/",
+    "email_source_url": "https://goldleafinvestmentfund.com/contact-us-2/",
+    "phone_source_url": "https://goldleafinvestmentfund.com/contact-us-2/",
+    "old_source_url": "https://goldleafinvestmentfund.com/contact-us/",
+    "evidence_excerpt": "Call us 904-557-6191 Have any questions? andy@goldleafinvestmentfund.com 444 Paseo Reyes Dr, St. Augustine, FL 32095",
+    "raw_snapshot": "research/raw/supplement/f62547a0a528e74f283071c82e8d9a0a0bf001e9900ffd709c7755e30e3218e5.html",
+    "raw_template_snapshot": "research/raw/supplement/d0b13774163aff302e9009957975b479e94940bf93070c676b125f0fe87594ea.html"
+  }
+]

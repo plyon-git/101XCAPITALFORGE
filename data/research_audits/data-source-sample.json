@@ -1,0 +1,1250 @@
+{
+  "cohort_rows": {
+    "fit_leads.jsonl": 89,
+    "sbic_leads.jsonl": 183,
+    "supplement_leads.jsonl": 386,
+    "bulk_primary_COMPLETE.jsonl": 999
+  },
+  "sample_size": 50,
+  "samples": [
+    {
+      "company": "1187 Lending Company",
+      "cohort": "fit_leads.jsonl",
+      "email": "nick@1187lending.com",
+      "phone": "+18176464200",
+      "source_url": "https://www.1187lending.com/",
+      "contact_source_urls": [
+        "https://www.1187lending.com/",
+        "https://www.1187lending.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/1187_lending_company.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/1187_lending_company.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "18 Sierra Financial",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@18sierrafinancial.com",
+      "phone": "+17196002210",
+      "source_url": "https://18sierrafinancial.com/",
+      "contact_source_urls": [
+        "https://18sierrafinancial.com/",
+        "https://18sierrafinancial.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/2315b840ed7efb3b5d76460ac8610ad267d2bbffc18d8d45977e942ed8ecc7b3.html.gz",
+        "research/fit_sources/18_sierra_financial.json"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/2315b840ed7efb3b5d76460ac8610ad267d2bbffc18d8d45977e942ed8ecc7b3.html.gz",
+        "research/fit_sources/18_sierra_financial.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Alpha Commercial Capital",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@alphacommercialcapital.com",
+      "phone": "+12019134358",
+      "source_url": "https://alphacommercialcapital.com/",
+      "contact_source_urls": [
+        "https://alphacommercialcapital.com/contact-us/",
+        "https://alphacommercialcapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": false,
+      "phone_found_in_snapshot": false,
+      "email_snapshot": [],
+      "phone_snapshot": [],
+      "priority": 90,
+      "source_search_reference": "turn31search0",
+      "public_observation_basis": "Official-source search retrieval; HTTP snapshot returned403/502 or omitted the page. No invented address pattern."
+    },
+    {
+      "company": "American Direct Funding",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@americandirectfunding.com",
+      "phone": "+18559554921",
+      "source_url": "https://americandirectfunding.com/",
+      "contact_source_urls": [
+        "https://americandirectfunding.com/",
+        "https://americandirectfunding.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/american_direct_funding.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/american_direct_funding.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "American Funding Association",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@americanfundingassociation.com",
+      "phone": "+18559101500",
+      "source_url": "https://americanfundingassociation.com/",
+      "contact_source_urls": [
+        "https://americanfundingassociation.com/",
+        "https://americanfundingassociation.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/american_funding_association.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/american_funding_association.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "AMZA Capital",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@amzacapital.com",
+      "phone": "+18888583241",
+      "source_url": "https://amzacapital.com/",
+      "contact_source_urls": [
+        "https://amzacapital.com/",
+        "https://amzacapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/amza_capital.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/amza_capital.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Anchor Funding",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@anchorfundingllc.com",
+      "phone": "+12104001841",
+      "source_url": "https://anchorfundingllc.com/",
+      "contact_source_urls": [
+        "https://anchorfundingllc.com/",
+        "https://anchorfundingllc.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/anchor_funding.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/anchor_funding.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Andij Capital Consulting",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@andijcapital.com",
+      "phone": "+17577057206",
+      "source_url": "https://andijcapital.com/",
+      "contact_source_urls": [
+        "https://andijcapital.com/",
+        "https://andijcapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": false,
+      "phone_found_in_snapshot": false,
+      "email_snapshot": [],
+      "phone_snapshot": [],
+      "priority": 90,
+      "source_search_reference": "turn31search4",
+      "public_observation_basis": "Official-source search retrieval; HTTP snapshot returned403/502 or omitted the page. No invented address pattern."
+    },
+    {
+      "company": "Angle Financial Services",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@anglefinancialservices.com",
+      "phone": "+13027357526",
+      "source_url": "https://www.anglefinancialservices.com/",
+      "contact_source_urls": [
+        "https://www.anglefinancialservices.com/",
+        "https://www.anglefinancialservices.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/angle_financial_services.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/angle_financial_services.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "ARF Financial",
+      "cohort": "fit_leads.jsonl",
+      "email": "funding@arffinancial.com",
+      "phone": "+18667024430",
+      "source_url": "https://www.arffinancial.com/",
+      "contact_source_urls": [
+        "https://www.arffinancial.com/",
+        "https://www.arffinancial.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/arf_financial.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/arf_financial.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "BCK Financial",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@bckfinance.com",
+      "phone": "+12489258339",
+      "source_url": "https://www.bckfinance.com/",
+      "contact_source_urls": [
+        "https://www.bckfinance.com/",
+        "https://www.bckfinance.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/bck_financial.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/bck_financial.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Brent Funding Partners",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@brentfundingpartners.com",
+      "phone": "+16786927994",
+      "source_url": "https://brentfundingpartners.com/",
+      "contact_source_urls": [
+        "https://www.brentfundingpartners.com/",
+        "https://brentfundingpartners.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/brent_funding_partners.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/brent_funding_partners.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Byzfunder",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@byzfunder.com",
+      "phone": "+18884760755",
+      "source_url": "https://byzfunder.com/",
+      "contact_source_urls": [
+        "https://byzfunder.com/terms-of-application",
+        "https://byzfunder.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/byzfunder.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/byzfunder.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "CFG Merchant Solutions",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@cfgms.com",
+      "phone": "+18446623467",
+      "source_url": "https://cfgmerchantsolutions.com/",
+      "contact_source_urls": [
+        "https://cfgmerchantsolutions.com/contact/",
+        "https://cfgmerchantsolutions.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/cfg_merchant_solutions.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/cfg_merchant_solutions.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Clear Skies Capital",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@clearskiescapital.com",
+      "phone": "+18002309822",
+      "source_url": "https://www.clearskiescapital.com/",
+      "contact_source_urls": [
+        "https://www.clearskiescapital.com/",
+        "https://www.clearskiescapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/clear_skies_capital.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/clear_skies_capital.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Credibly",
+      "cohort": "fit_leads.jsonl",
+      "email": "customerservice@credibly.com",
+      "phone": "+18886641444",
+      "source_url": "https://www.credibly.com/",
+      "contact_source_urls": [
+        "https://www.credibly.com/contact/",
+        "https://www.credibly.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": false,
+      "phone_found_in_snapshot": false,
+      "email_snapshot": [],
+      "phone_snapshot": [],
+      "priority": 90,
+      "source_search_reference": "turn28search0",
+      "public_observation_basis": "Official-source search retrieval; HTTP snapshot returned403/502 or omitted the page. No invented address pattern."
+    },
+    {
+      "company": "Credit Capital",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@creditcapinc.com",
+      "phone": "+12123012454",
+      "source_url": "https://www.creditcapinc.com/",
+      "contact_source_urls": [
+        "https://www.creditcapinc.com/press-releases-all/credit-capital-secures-a-working-capital-loan-for-a-texas-construction-in-the-amount-of-500000",
+        "https://www.creditcapinc.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/credit_capital.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/credit_capital.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Crestmont Capital",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@crestmontcapital.com",
+      "phone": "+18009490401",
+      "source_url": "https://www.crestmontcapital.com/",
+      "contact_source_urls": [
+        "https://www.crestmontcapital.com/terms-conditions/",
+        "https://www.crestmontcapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": false,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [],
+      "phone_snapshot": [
+        "research/fit_sources/crestmont_capital.json"
+      ],
+      "priority": 90,
+      "source_search_reference": "turn38search8",
+      "public_observation_basis": "Official-source search retrieval; HTTP snapshot returned403/502 or omitted the page. No invented address pattern."
+    },
+    {
+      "company": "Doriscar Capital Group",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@doriscarcapital.com",
+      "phone": "+15614675117",
+      "source_url": "https://doriscarcapital.com/",
+      "contact_source_urls": [
+        "https://doriscarcapital.com/",
+        "https://doriscarcapital.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/doriscar_capital_group.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/doriscar_capital_group.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "Everest Business Funding",
+      "cohort": "fit_leads.jsonl",
+      "email": "info@everestbusinessfunding.com",
+      "phone": "+18006192943",
+      "source_url": "https://everestbusinessfunding.com/",
+      "contact_source_urls": [
+        "https://everestbusinessfunding.com/privacy-policy",
+        "https://everestbusinessfunding.com/",
+        "",
+        ""
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/fit_sources/everest_business_funding.json"
+      ],
+      "phone_snapshot": [
+        "research/fit_sources/everest_business_funding.json"
+      ],
+      "priority": 90
+    },
+    {
+      "company": "3 Shacks LLC",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "3shackscapitalpartners@gmail.com",
+      "phone": "+19044244154",
+      "source_url": "https://privatelenderlink.com/profile/3-shacks-llc/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/3-shacks-llc/",
+        "https://www.northfloridahardmoney.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/3-shacks-llc/",
+        "https://privatelenderlink.com/profile/3-shacks-llc/",
+        "https://www.northfloridahardmoney.com/?utm_source=private-lender-link",
+        "https://www.northfloridahardmoney.com/?utm_source=private-lender-link"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/a865eed30d01143bef6299db6b653a77afe494d48274fbe01f7f5d3ca83c4b22.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/a865eed30d01143bef6299db6b653a77afe494d48274fbe01f7f5d3ca83c4b22.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Sterling Pacific",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "joshua.fischer@sterlpac.com",
+      "phone": "+18668963605",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/sterling-pacific",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/sterling-pacific",
+        "http://sterlpac.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/sterling-pacific",
+        "https://www.hardmoneyhome.com/lenders/view/sterling-pacific",
+        "https://www.hardmoneyhome.com/lenders/view/sterling-pacific",
+        "https://privatelenderlink.com/profile/sterling-pacific-financial/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/557f24ff21683c139c5fb578e47ee79da05f1f2705475a4a78f7fd08c21e1b7e.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/abcaccc2fe0a4a2be8cfead2678ddfc31f9f3a7101501402474c5141f3fd13ee.html.gz",
+        "research/bulk/raw/557f24ff21683c139c5fb578e47ee79da05f1f2705475a4a78f7fd08c21e1b7e.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Eagle Point Lending",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "newloans@eaglepointlending.com",
+      "phone": "+18328215177",
+      "source_url": "https://privatelenderlink.com/profile/eagle-point-lending/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/eagle-point-lending/",
+        "https://www.eaglepointlending.com",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/eagle-point-lending/",
+        "https://privatelenderlink.com/profile/eagle-point-lending/",
+        "https://privatelenderlink.com/profile/eagle-point-lending/",
+        "https://www.eaglepointlending.com"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/799896eff9fcb3dbb94e9d2d74aece71b68d137ab26e04149bd70f17731e6573.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/16df9f54e9969cfa010de61094d0bc46c8ae84c66d9643fa73fd9d70ca899a1c.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "LK Secured Lending",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "pshanahan@lksecuredlending.com",
+      "phone": "+18052839792",
+      "source_url": "https://privatelenderlink.com/profile/lk-secured-lending/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/lk-secured-lending/",
+        "https://lksecuredlending.com",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/lk-secured-lending/",
+        "https://privatelenderlink.com/profile/lk-secured-lending/",
+        "https://privatelenderlink.com/profile/lk-secured-lending/",
+        "https://lksecuredlending.com"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/1b8d199f7955876ccc6b6b06d0a63e4a0690b718bae86855a2dbe6aee47034ad.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/2ff74924f7bced8f4e5a7ed4b63527c01a5f228f3da05e8cdf3555ef0b563a23.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "High Desert Capital",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "info@highdesertcap.com",
+      "phone": "+19155937111",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/high-desert-capital",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/high-desert-capital",
+        "http://www.highdesertcap.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/high-desert-capital",
+        "https://www.hardmoneyhome.com/lenders/view/high-desert-capital",
+        "https://www.hardmoneyhome.com/lenders/view/high-desert-capital",
+        "https://www.highdesertcap.com/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/a956f62977aac33a1c606878d19f156fb60d316ecc0b200de9a0ecf0e5a4e482.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/9a3654dbd6b31e89b55236df8e4e72535a1d0cc5f5ff16c79154bedc33ca004d.html.gz",
+        "research/bulk/raw/a956f62977aac33a1c606878d19f156fb60d316ecc0b200de9a0ecf0e5a4e482.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Groundfloor Lending",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "lendingsales@groundfloor.us",
+      "phone": "+14043348802",
+      "source_url": "https://privatelenderlink.com/profile/groundfloor/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/groundfloor/",
+        "https://lending.groundfloor.com/?utm_source=lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/groundfloor/",
+        "https://privatelenderlink.com/profile/groundfloor/",
+        "https://privatelenderlink.com/profile/groundfloor/",
+        "https://privatelenderlink.com/profile/groundfloor/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/d0e9c4f92cb9c36fa77a12454caaefa1489586a9ee65045a25d13362cb60ca04.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/d0e9c4f92cb9c36fa77a12454caaefa1489586a9ee65045a25d13362cb60ca04.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "NLDS Corp",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "ken@hardmoneyman.com",
+      "phone": "+18664612695",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/nlds-corp",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/nlds-corp",
+        "https://hardmoneyman.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/nlds-corp",
+        "https://www.hardmoneyhome.com/lenders/view/nlds-corp",
+        "https://www.hardmoneyhome.com/lenders/view/nlds-corp",
+        "https://hardmoneyman.com/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/a4c6b88c7e3df6cb00121734bf5a6812b96e32c361f487a47630f8769206031c.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/bbe02c5f450838013a8eec5ba6075f127e44e2fc8d9e27fc29777b655f48530d.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "F2 Finance LLC",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "salesteam@f2finance.com",
+      "phone": "+13104020931",
+      "source_url": "https://privatelenderlink.com/profile/f2-finance-llc/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/f2-finance-llc/",
+        "https://f2finance.com/?utm_source=lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/f2-finance-llc/",
+        "https://privatelenderlink.com/profile/f2-finance-llc/",
+        "https://privatelenderlink.com/profile/f2-finance-llc/",
+        "https://privatelenderlink.com/profile/f2-finance-llc/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/3cf7dc1b4e19a8781185a77bccb6b902692954aefd213182011958e3370e0376.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/3cf7dc1b4e19a8781185a77bccb6b902692954aefd213182011958e3370e0376.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Aztec Financial",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "jhofaztec@aol.com",
+      "phone": "+18188488960",
+      "source_url": "https://privatelenderlink.com/profile/aztec-financial/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/aztec-financial/",
+        "https://aztecfinancial.net/",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/aztec-financial/",
+        "https://privatelenderlink.com/profile/aztec-financial/",
+        "https://privatelenderlink.com/profile/aztec-financial/",
+        "https://aztecfinancial.net/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/90b5737302c4fff49fa3bf5cddcd08c3927531536ad0feaf421fe2c1f65a7dd1.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/636d00b30e5b4b097138531832fde42ccf7acd62cf9df6ec478b16c31ebe78a6.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Kentucky Private Lending",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "epayne@kentuckypl.com",
+      "phone": "+15027271019",
+      "source_url": "https://privatelenderlink.com/profile/kentucky-private-lending/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/kentucky-private-lending/",
+        "https://kentuckypl.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/kentucky-private-lending/",
+        "https://privatelenderlink.com/profile/kentucky-private-lending/",
+        "https://privatelenderlink.com/profile/kentucky-private-lending/",
+        "https://privatelenderlink.com/profile/kentucky-private-lending/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/89761dd09470bf20ef207306de2df00dff462e782982163d3601c3089b650335.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/89761dd09470bf20ef207306de2df00dff462e782982163d3601c3089b650335.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "LendSimpli",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "hello@lendsimpli.com",
+      "phone": "+18135900416",
+      "source_url": "https://privatelenderlink.com/profile/lendsimpli/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/lendsimpli/",
+        "https://lendsimpli.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/lendsimpli/",
+        "https://privatelenderlink.com/profile/lendsimpli/",
+        "https://privatelenderlink.com/profile/lendsimpli/",
+        "https://lendsimpli.com/?utm_source=private-lender-link"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/b528096f6e900b6b055665194325af77fd4c66c7dd9d0f6bc7f8f408ad6567b0.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/24a3dcd0bfe77bd83f0cd8147afc2d5dda1d1b6b5010e61bcaaf12bcce16e09a.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Fidelity Mortgage Lenders",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "info@fidelitylenders.com",
+      "phone": "+13107734087",
+      "source_url": "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/",
+        "https://fidelityca.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/",
+        "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/",
+        "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/",
+        "https://privatelenderlink.com/profile/fidelity-mortgage-lenders/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/040eadbf9a11a979fbf12f9710ded1c65f0a3b447d81fd596a7e13d2958c4be1.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/040eadbf9a11a979fbf12f9710ded1c65f0a3b447d81fd596a7e13d2958c4be1.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "T&M Commercial Funding",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "info@tmfunding.com",
+      "phone": "+12073446669",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/tandm-commercial-funding",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/tandm-commercial-funding",
+        "http://tmfunding.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/tandm-commercial-funding",
+        "https://www.hardmoneyhome.com/lenders/view/tandm-commercial-funding",
+        "https://www.hardmoneyhome.com/lenders/view/tandm-commercial-funding",
+        "http://tmfunding.com/contact-us/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/55e600806ae30ae622e7b3a993a97d592f721edc5fb01a2c2b04bb2ad18dd4f7.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/8159c841c1725ac287554dae676d026c483defb9145f3ffb71417e6fc4f8511c.html.gz",
+        "research/bulk/raw/55e600806ae30ae622e7b3a993a97d592f721edc5fb01a2c2b04bb2ad18dd4f7.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Quanta Finance",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "sales@quantafinance.com",
+      "phone": "+17146966915",
+      "source_url": "https://privatelenderlink.com/profile/quanta-finance/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/quanta-finance/",
+        "https://quantafinance.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/quanta-finance/",
+        "https://privatelenderlink.com/profile/quanta-finance/",
+        "https://privatelenderlink.com/profile/quanta-finance/",
+        "https://privatelenderlink.com/profile/quanta-finance/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/f820960b0d40e32638d59603ddd1be6c0754e52a27d4a6138bafeed3fe8e57d8.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/f820960b0d40e32638d59603ddd1be6c0754e52a27d4a6138bafeed3fe8e57d8.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Alliance Portfolio",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "info@allianceportfolio.com",
+      "phone": "+19493491322",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/alliance-portfolio",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/alliance-portfolio",
+        "http://allianceportfolio.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/alliance-portfolio",
+        "https://www.hardmoneyhome.com/lenders/view/alliance-portfolio",
+        "https://www.hardmoneyhome.com/lenders/view/alliance-portfolio",
+        "https://privatelenderlink.com/profile/alliance-portfolio/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/ecaa0fe82052ebdbec80dbcce8592ddf76ae323191bb895266e9e5f3530ec1e4.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/d43e89ffb497d3b60ecf0229ee3781e7a075fc6022727fe2c87bc35b6f747555.html.gz",
+        "research/bulk/raw/ecaa0fe82052ebdbec80dbcce8592ddf76ae323191bb895266e9e5f3530ec1e4.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Artemis Realty Capital",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "loans@artemisrealtycapitalllc.com",
+      "phone": "+16023810238",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/artemis-realty-capital",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/artemis-realty-capital",
+        "https://www.artemisrealtycapitalllc.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/artemis-realty-capital",
+        "https://www.hardmoneyhome.com/lenders/view/artemis-realty-capital",
+        "https://www.hardmoneyhome.com/lenders/view/artemis-realty-capital",
+        "https://artemisrealtycapitalllc.com/contact/"
+      ],
+      "snapshots_checked": 3,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/915947852307bdf0f280cf81bc7f24a0ddab1ce8c6278d987e1a00bcb6207b5f.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/271f82633845d5acca6404ae91741d5efe4ce51299e2388da55135efeef274a4.html.gz",
+        "research/bulk/raw/1cb22a14d58cc5f3b869c322d93eb0ca6215beaad051a8efdf5aa90d19551f0e.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Capstone Financial",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "info@capstonefi.com",
+      "phone": "+14803362828",
+      "source_url": "https://privatelenderlink.com/profile/capstone-financial/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/capstone-financial/",
+        "http://www.capstonefi.com",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/capstone-financial/",
+        "https://privatelenderlink.com/profile/capstone-financial/",
+        "https://privatelenderlink.com/profile/capstone-financial/",
+        "https://www.capstonefi.com"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/0b2098ea91a080507286c6721b18aa65e1cd29059359540192622c50643e9269.html.gz",
+        "research/bulk/raw/a920938cebb73fcade8943f03ccacdd6aa06f81be7e762a155a4aeba7e4c7ecd.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/a920938cebb73fcade8943f03ccacdd6aa06f81be7e762a155a4aeba7e4c7ecd.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "KDM Financial",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "jalonso@kdmfinancial.com",
+      "phone": "+18555365626",
+      "source_url": "https://privatelenderlink.com/profile/kdm-financial/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/kdm-financial/",
+        "https://kdmfinancial.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/kdm-financial/",
+        "https://privatelenderlink.com/profile/kdm-financial/",
+        "https://privatelenderlink.com/profile/kdm-financial/",
+        "https://kdmfinancial.com/?utm_source=private-lender-link"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/58da27c584a6b414ddc81340927e878ce0dfd9baec8eb264fa3206ba42c440b8.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/00db4264177de097b6dc142e3665b9e53b97571e9c74fed4fde54c563975ae63.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Matchpoint Lending",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "mz@matchpointlending.com",
+      "phone": "+13055181830",
+      "source_url": "https://privatelenderlink.com/profile/matchpoint-lending/",
+      "contact_source_urls": [
+        "https://privatelenderlink.com/profile/matchpoint-lending/",
+        "https://matchpointlending.com/?utm_source=private-lender-link",
+        "",
+        "",
+        "https://privatelenderlink.com/profile/matchpoint-lending/",
+        "https://privatelenderlink.com/profile/matchpoint-lending/",
+        "https://privatelenderlink.com/profile/matchpoint-lending/",
+        "https://privatelenderlink.com/profile/matchpoint-lending/"
+      ],
+      "snapshots_checked": 1,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/02cc34fabfced483966872f81edd1f7e7124aecf21a4265ff0881d6e939f5c51.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/02cc34fabfced483966872f81edd1f7e7124aecf21a4265ff0881d6e939f5c51.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Lewis Hanson and Company",
+      "cohort": "bulk_primary_COMPLETE.jsonl",
+      "email": "lhcinc@lewishanson.com",
+      "phone": "+15419282500",
+      "source_url": "https://www.hardmoneyhome.com/lenders/view/lewis-hanson-and-company",
+      "contact_source_urls": [
+        "https://www.hardmoneyhome.com/lenders/view/lewis-hanson-and-company",
+        "http://www.lewishanson.com/",
+        "",
+        "",
+        "https://www.hardmoneyhome.com/lenders/view/lewis-hanson-and-company",
+        "https://www.hardmoneyhome.com/lenders/view/lewis-hanson-and-company",
+        "https://www.hardmoneyhome.com/lenders/view/lewis-hanson-and-company",
+        "https://www.lewishanson.com/"
+      ],
+      "snapshots_checked": 2,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/bulk/raw/dadf64d8825504b64de5166e7b71707a21611c02f9cf6890c92b09e2c858fe04.html.gz"
+      ],
+      "phone_snapshot": [
+        "research/bulk/raw/b5c948ffd20943c4b4e322f0a9564e5dba387400c846fd07c4424303b50512ed.html.gz",
+        "research/bulk/raw/dadf64d8825504b64de5166e7b71707a21611c02f9cf6890c92b09e2c858fe04.html.gz"
+      ],
+      "priority": 20
+    },
+    {
+      "company": "Northcreek Management, Inc.",
+      "cohort": "sbic_leads.jsonl",
+      "email": "rdavis@northcreekmezzanine.com",
+      "phone": "+15139856600",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=21",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=21",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_21.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_21.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "SBJ Elevation, LLC",
+      "cohort": "sbic_leads.jsonl",
+      "email": "gus@sbjcap.com",
+      "phone": "+14432041405",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=27",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=27",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_27.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_27.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Multiplier Capital, LLC",
+      "cohort": "sbic_leads.jsonl",
+      "email": "sheehan@multipliercapital.com",
+      "phone": "+19177833223",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=20",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=20",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_20.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_20.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Argosy Private Equity",
+      "cohort": "sbic_leads.jsonl",
+      "email": "mbailey@argosycapital.com",
+      "phone": "+16109719685",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=1",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=1",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_1.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_1.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Balance Point Capital Advisors, LLC",
+      "cohort": "sbic_leads.jsonl",
+      "email": "salvord@balancepointcapital.com",
+      "phone": "+12036528255",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=2",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=2",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_2.html",
+        "research/sbic_cache/page_1.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_2.html",
+        "research/sbic_cache/page_1.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Patriot Capital",
+      "cohort": "sbic_leads.jsonl",
+      "email": "cmccusker@patriot-capital.com",
+      "phone": "+14435733015",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=22",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=22",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_22.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_22.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Brass Ring Capital, Inc.",
+      "cohort": "sbic_leads.jsonl",
+      "email": "wlg@brassringcapital.com",
+      "phone": "+16128442683",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=3",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=3",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_3.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_3.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Corbel Capital",
+      "cohort": "sbic_leads.jsonl",
+      "email": "michael@corbelcap.com",
+      "phone": "+13102992476",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=7",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=7",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_7.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_7.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Sound Growth Partners Fund 1, GP",
+      "cohort": "sbic_leads.jsonl",
+      "email": "peroushdy@gmail.com",
+      "phone": "+13015184239",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=28",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=28",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_28.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_28.html"
+      ],
+      "priority": 60
+    },
+    {
+      "company": "Quilvest Capital Partners USA, Inc.",
+      "cohort": "sbic_leads.jsonl",
+      "email": "bcummings@quilvestcapital.com",
+      "phone": "+12129203851",
+      "source_url": "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=25",
+      "contact_source_urls": [
+        "https://legacy.sba.gov/funding-programs/investment-capital/sbic-directory?page=25",
+        "",
+        "",
+        ""
+      ],
+      "snapshots_checked": 45,
+      "email_found_in_snapshot": true,
+      "phone_found_in_snapshot": true,
+      "email_snapshot": [
+        "research/sbic_cache/page_25.html"
+      ],
+      "phone_snapshot": [
+        "research/sbic_cache/page_25.html"
+      ],
+      "priority": 60
+    }
+  ],
+  "summary": {
+    "email_found_in_snapshot": 46,
+    "phone_found_in_snapshot": 47
+  }
+}

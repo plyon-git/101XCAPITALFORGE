@@ -1,0 +1,87 @@
+{
+  "crm_verified_cash_flags": 0,
+  "lost_sbic_fund_vintage_records": 0,
+  "bad_primary_us_phones": [],
+  "bank_named_candidates": [
+    "Axos Bank",
+    "Cross River Bank",
+    "Walton State Bank",
+    "American Bank Business Finance",
+    "BankFinancial Equipment Finance",
+    "Cashmere Valley Bank",
+    "Columbia Bank",
+    "First Horizon Bank",
+    "First Internet Bank",
+    "First Utah Bank",
+    "Hanmi Bank",
+    "North Star Leasing, a Division of Peoples Bank",
+    "Pitney Bowes Bank",
+    "Stearns Bank N.A"
+  ],
+  "sbic_manager_alias_groups_shared_email": {
+    "salvord@balancepointcapital.com": [
+      "Balance Point Capital",
+      "Balance Point Capital Advisors, LLC"
+    ],
+    "adkocen@bluehenge.com": [
+      "Bluehenge Capital Partners",
+      "Bluehenge Capital Management, LLC"
+    ],
+    "selassie@brightwoodlp.com": [
+      "Brightwood Capital",
+      "Brightwood Capital Advisors, LLC"
+    ],
+    "faraz@centerfieldcapital.com": [
+      "Centerfield Capital Partners",
+      "Centerfield Management VI, Inc."
+    ],
+    "bgeis@eagleprivatecapital.com": [
+      "Eagle Private Capital, LLC",
+      "Eagle Private Capital VI, Inc"
+    ],
+    "ben@everside.com": [
+      "Everside Capital Partners, LLC",
+      "Everside"
+    ],
+    "wedwards@fivepointscapital.com": [
+      "Five Points Capital, Inc.",
+      "Five Points Capital, LLC"
+    ],
+    "curtis.hartman@genesis-park.com": [
+      "Genesis Park",
+      "GPCP MGMT, LLC"
+    ],
+    "stacy@northcoastmezz.com": [
+      "NorthCoast Mezzanine",
+      "NorthCoast Mezzanine, LP"
+    ],
+    "ckocourek@northstarcapital.com": [
+      "Northstar Company LLC",
+      "Northstar Capital"
+    ],
+    "james.burke@sharpvuecap.com": [
+      "SharpVue Capital",
+      "SharpVue SBIC Management, L.P."
+    ],
+    "saxel@southfieldmezz.com": [
+      "Southfield Mezzanine Associates LLC",
+      "Southfield Capital"
+    ],
+    "jca@springcap.com": [
+      "Spring Capital Partners",
+      "Spring Capital Management Company"
+    ],
+    "brett.hickey@starmountaincapital.com": [
+      "Star Mountain Fund Management, LLC",
+      "Star Mountain Capital"
+    ],
+    "sgurgovits@tecum.com": [
+      "Tecum Capital",
+      "Tecum Capital Management, Inc. (TMC)"
+    ],
+    "srw@truewestcp.com": [
+      "True West Capital Partners",
+      "True West Management Company, LLC"
+    ]
+  }
+}

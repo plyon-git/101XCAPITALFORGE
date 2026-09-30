@@ -1,0 +1,42 @@
+{
+  "research_status": "frozen_complete_checkpoint",
+  "records": 987,
+  "published_emails": 350,
+  "net_new_emails": 350,
+  "net_new_phone_email_pairs": 350,
+  "regulatory_routing_count": 151,
+  "status": {
+    "brochure_inaccessible": 73,
+    "publicly_published_not_delivery_tested": 350,
+    "no_email_in_first_3_public_brochure_pages": 307,
+    "no_public_brochure": 251,
+    "non_business_contact_excluded": 6
+  },
+  "excluded_legal_hr_privacy_support": [
+    {
+      "company": "VALEAS CAPITAL PARTNERS",
+      "email": "legal@valeas.com"
+    },
+    {
+      "company": "STELLA POINT CAPITAL, LP",
+      "email": "legal@stellapoint.com"
+    },
+    {
+      "company": "CASPIAN CAPITAL, LP",
+      "email": "legal@caspianlp.com"
+    },
+    {
+      "company": "DV CAPITAL ADVISORS, LLC",
+      "email": "legal@dvca.com"
+    },
+    {
+      "company": "SC MANAGEMENT LLC",
+      "email": "legal@sc.holdings"
+    },
+    {
+      "company": "RPM CAPITAL PARTNERS, LLC",
+      "email": "legal@sigulerguff.com"
+    }
+  ],
+  "sha256": "02fb4deab1966bd343469cac0506da98393cbc868e74fed3efd5038726070bba"
+}

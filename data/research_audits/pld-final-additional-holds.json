@@ -1,0 +1,65 @@
+{
+  "sample_rows": 40,
+  "sampling": "20 random complete plus20role-unconfirmed complete, seed202609300459; existing source cohorts unchanged",
+  "additional_holds": [
+    {
+      "company": "CAPITAL COMMERCIAL RE GROUP",
+      "recommended_action": "exclude_service_vendor_from_financier_cohort",
+      "reason": "Current primary site identifies commercial property brokerage, sales, leases and agent services. Source does not establish a financing product.",
+      "email": "info@capitalcomre.com",
+      "phone": "+1 610-359-9700",
+      "primary_source": {
+        "url": "https://www.capitalcomre.com/",
+        "snapshot": "research/pld_backend_cache/3a4a01abc363ab0289804c7f432d31193fbf8dfe75fe7e8680a6c3cbddcde3cb.html.gz"
+      },
+      "excerpt": "WHAT ARE YOU LOOKING TO DO? Buy Lease Services Brokerage",
+      "cohort": "pld_backend_batch.FINAL.jsonl"
+    },
+    {
+      "company": "ALLY CORPORATE FINANCE",
+      "recommended_action": "blank_phone_until_actual_corporate_finance_number_is_sourced",
+      "reason": "The selected phone is labeled Report fraud on the parent support page, not the corporate-finance division. Corporatefinance@ally.com is explicitly labeled corporate services.",
+      "old_phone": "(833) 226-1520",
+      "keep_email": "corporatefinance@ally.com",
+      "primary_source": {
+        "url": "https://www.ally.com/contact-us/",
+        "snapshot": "research/bulk/raw/93ae75c05ebc541a62f4827739937fe41ff1350bfd6debc1c24f7e98b603dc0a.html.gz"
+      },
+      "excerpt": "Report fraud 1-833-226-1520",
+      "cohort": "pld_supplement_batch.FINAL.jsonl"
+    },
+    {
+      "company": "CAPITAL SOURCE GROUP",
+      "recommended_action": "replace_truncated_email_with_unambiguously_published_spaced_address",
+      "reason": "HTML footer Contact Us / Email displays i n f o@capitalsourcegroup.com. Regex extraction omitted the spaced prefix and returned only o@. Joining explicitly displayed letters is source decoding, not an inferred email pattern.",
+      "old_email": "o@capitalsourcegroup.com",
+      "email": "info@capitalsourcegroup.com",
+      "phone": "(888) 443-3766",
+      "primary_source": {
+        "url": "https://capitalsourcegroup.com/",
+        "snapshot": "research/bulk/raw/8aa685a3ab76d2030a3b76fd69f7d37c4d2470f98b853c8126615b2162f2a5ab.html.gz"
+      },
+      "excerpt": "Email i n f o@capitalsourcegroup.com Phone (888) 443-3766",
+      "cohort": "pld_bulk_FROZEN_20260930T035900.FINAL.jsonl"
+    }
+  ],
+  "qualification_flags": [
+    {
+      "company": "FASTFI",
+      "recommended_action": "finance_role_review_only_not_automatic_exclusion",
+      "reason": "Current homepage describes business consulting and operational strategies; directory describes financing. Keep role unconfirmed pending supported current financing product.",
+      "primary_source": {
+        "url": "https://www.fastfi.org/",
+        "snapshot": "research/bulk/raw/ff36ef6b69399a7f5772aa1dac1ac5279557cbe319e47291fd20e6671cf7c982.html.gz"
+      },
+      "excerpt": "Expert Business Consulting Strategic Guidance to Grow, Optimize, and Scale Your Business."
+    }
+  ],
+  "no_extra_exclusion_for_role_unknown": [
+    "BASIL HOLDINGS",
+    "Bridgehaven Homes",
+    "HOMESTEAD ROAD"
+  ],
+  "duplicate_note": "ELITE LENDING PARTNERS and ELITE LEDNING PARTNERS share company site and info@elitelendingpartners.com; assembler email/domain dedup should collapse this spelling variant.",
+  "outreach_sent": false
+}

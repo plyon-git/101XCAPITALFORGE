@@ -1,0 +1,15 @@
+{
+  "import": {
+    "inserted": 6563,
+    "merged": 0,
+    "invalid": 0,
+    "errors": []
+  },
+  "measured": {
+    "total": 6563,
+    "paired": 3089,
+    "available_cash_verified": 0
+  },
+  "expected": 6563,
+  "validated_at": "2026-09-30"
+}

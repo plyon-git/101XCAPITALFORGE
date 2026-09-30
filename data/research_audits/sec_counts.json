@@ -1,0 +1,22 @@
+{
+  "total": 3825,
+  "email": 1364,
+  "phone": 3824,
+  "both": 1364,
+  "categories": {
+    "equity_manager_research": 2744,
+    "private_credit_manager_research": 316,
+    "real_estate_fund_manager": 765
+  },
+  "email_by_category": {
+    "equity_manager_research": 961,
+    "private_credit_manager_research": 139,
+    "real_estate_fund_manager": 264
+  },
+  "status": {
+    "publicly_published_not_delivery_tested": 1364,
+    "not_found_on_accessible_business_pages": 947,
+    "website_inaccessible_contact_not_verified": 990,
+    "no_business_website": 524
+  }
+}

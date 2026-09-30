@@ -1,0 +1,8 @@
+runtime
+__pycache__
+*.pyc
+.env
+*.sqlite*
+backups
+data/source_cache
+tests

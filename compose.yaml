@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    init: true
+    environment:
+      CAPITALFORGE_HOST: 0.0.0.0
+      CAPITALFORGE_PORT: 8787
+      CAPITALFORGE_DATA_DIR: /var/lib/capitalforge
+      CAPITALFORGE_ALLOWED_HOSTS: ${CAPITALFORGE_DOMAIN},localhost,127.0.0.1
+      CAPITALFORGE_SECURE_COOKIES: "1"
+      CAPITALFORGE_BOOTSTRAP_TOKEN: ${CAPITALFORGE_BOOTSTRAP_TOKEN}
+    volumes:
+      - crm_data:/var/lib/capitalforge
+    expose:
+      - "8787"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      CAPITALFORGE_DOMAIN: ${CAPITALFORGE_DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+volumes:
+  crm_data:
+  caddy_data:
+  caddy_config:

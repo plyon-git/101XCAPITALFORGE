@@ -1,0 +1,76 @@
+{
+  "retrieved_at": "2026-09-30",
+  "files": [
+    {
+      "file": "research/sec/ADV_Filing_Data_20260701_20260731.zip",
+      "bytes": 8220619,
+      "sha256": "d6cda1b79b10b97768de258295bc6c5064d7e97e90a8d70d6d8bd965e48053c0"
+    },
+    {
+      "file": "research/sec/ia09012026-registered.zip",
+      "bytes": 5326806,
+      "sha256": "2302e3ea00819b40f9f595dca53925137e9a6efacbdbfb8d912e66780c92601e"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260801_20260831.zip",
+      "bytes": 7168440,
+      "sha256": "05610380473dd6f51715ee22de218d5b19609ec13f19d7aedf1f45142ad9eabf"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260301_20260331.zip",
+      "bytes": 32782706,
+      "sha256": "c25b906f9fe2682e771fc41838f17baefca1693a506675dd57b46a4c02635941"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260201_20260228.zip",
+      "bytes": 6136208,
+      "sha256": "9385b46e53f1760a27c2ee5cc0aa2457efe177b51e07e75955275f003e17a172"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260101_20260131.zip",
+      "bytes": 6473194,
+      "sha256": "b5b7436225e2e2bffcb83f463dae65b8201649240ec0cefe8e3218186623087c"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260501_20260531.zip",
+      "bytes": 8506560,
+      "sha256": "058d7386730b626bc0d2b065431b875db363556e5e341b4483855dafb69601c7"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260601_20260630.zip",
+      "bytes": 9057014,
+      "sha256": "2392779b464c3542f925301a6c4755e51897d6d3146550e32849dcfa15bc0f55"
+    },
+    {
+      "file": "research/sec/ia09012026-exempt.zip",
+      "bytes": 858379,
+      "sha256": "48e6bf0b9b53494b6357f68c4635025abd0f63b93b0ee0bf0eea3aebe3652b2f"
+    },
+    {
+      "file": "research/sec/ADV_Filing_Data_20260401_20260430.zip",
+      "bytes": 7338147,
+      "sha256": "f3ad3badc712ae272aedf6791ceff7268c14dc5577b4abd1413b5e62e0018b4b"
+    },
+    {
+      "file": "research/sec/current_sec_20260929.xml.gz",
+      "bytes": 7312474,
+      "sha256": "e477b048e902c76669757ec563184ffb17d88a12c6d7137e141aa1dc67d3011f"
+    },
+    {
+      "file": "research/sec/compilation_manifest.json",
+      "bytes": 273,
+      "sha256": "dc55f3c49729918e3f862cf14580cf9b713085201e6a3b294d8e749e3bbc2593"
+    },
+    {
+      "file": "research/sec/reports_metadata.json",
+      "bytes": 39443,
+      "sha256": "04cacdfbe0863f6a2b0ac789ab105395c5ab9e807d39f63346bdbd34826a5bf3"
+    },
+    {
+      "file": "research/sec/iana_tlds.txt",
+      "bytes": 9536,
+      "sha256": "9bc4d53a6e21a54bc168a6543638b88354377927a07c2cf20717c4102dad644a",
+      "source_url": "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "company": "Baseline",
+    "reason": "Loan management software vendor",
+    "source_url": "https://www.baselinesoftware.com"
+  },
+  {
+    "company": "LoanPASS",
+    "reason": "Automated underwriting and pricing software vendor",
+    "source_url": "https://loanpass.io"
+  },
+  {
+    "company": "Liquid Logics",
+    "reason": "Loan origination software vendor",
+    "source_url": "https://www.liquidlogics.com/"
+  },
+  {
+    "company": "Mortgage Automator",
+    "reason": "Loan origination and servicing software vendor",
+    "source_url": "https://www.mortgageautomator.com/"
+  },
+  {
+    "company": "MortgageFlex",
+    "reason": "Mortgage technology and loan origination/servicing vendor",
+    "source_url": "https://mortgageflex.com"
+  },
+  {
+    "company": "The Mortgage Office",
+    "reason": "Loan management software vendor",
+    "source_url": "https://www.themortgageoffice.com/"
+  },
+  {
+    "company": "Opteon",
+    "reason": "Appraisal and valuation services vendor",
+    "source_url": "https://opteonsolutions.com/us"
+  },
+  {
+    "company": "Vision VMC",
+    "reason": "Appraisal and valuation services vendor",
+    "source_url": "https://www.visionvmc.com/"
+  },
+  {
+    "company": "Private Lender Title",
+    "reason": "Title insurance and legal/settlement services vendor",
+    "source_url": "https://www.privatelendertitle.com/"
+  },
+  {
+    "company": "Inspectify",
+    "reason": "Inspection reporting service vendor",
+    "source_url": "https://www.inspectify.com/"
+  },
+  {
+    "company": "McCabe Weisberg & Conway",
+    "reason": "Legal representation vendor",
+    "source_url": "https://www.mwc-law.com/"
+  },
+  {
+    "company": "South East Asset Management Services",
+    "reason": "Property management and risk services vendor",
+    "source_url": "https://www.seams.biz"
+  },
+  {
+    "company": "Real Property Group",
+    "reason": "Property management and real estate sales vendor",
+    "source_url": "https://www.rpgre.com/"
+  },
+  {
+    "company": "Stouffer & Associates",
+    "reason": "Real estate appraisal and brokerage vendor",
+    "source_url": "https://stoufferappraisals.com/"
+  },
+  {
+    "company": "Trinity Real Estate Solutions",
+    "reason": "Inspection and vendor-diligence service vendor",
+    "source_url": "https://www.trinityonline.com/"
+  },
+  {
+    "company": "Makdis Group1",
+    "reason": "Company/website mismatch: The Makris Group at Corcoran McEnearney is a real estate brokerage",
+    "source_url": "https://www.themakrisgroup.com/"
+  },
+  {
+    "company": "Expert Mortgage Assistance",
+    "reason": "Mortgage process outsourcing vendor",
+    "source_url": "https://www.expertmortgageassistance.com/"
+  },
+  {
+    "company": "Gwynedd Realty Group",
+    "reason": "Realtor and appraisal services; source does not establish lending",
+    "source_url": "https://gwyneddrealtygroup.com"
+  },
+  {
+    "company": "Lux Life Capital Investments",
+    "reason": "Company/website mismatch: site identifies Lux Life Realty real estate brokerage",
+    "source_url": "https://www.theluxliferealty.com"
+  },
+  {
+    "company": "CREDIT LAB",
+    "reason": "Credit restoration service, not an observed financier.",
+    "source_url": "https://www.privatelendersdirectory.com/"
+  },
+  {
+    "company": "CAPITAL COMMERCIAL RE GROUP",
+    "reason": "Commercial property brokerage, sales and leasing service; no financing product observed.",
+    "source_url": "https://www.capitalcomre.com/"
+  }
+]

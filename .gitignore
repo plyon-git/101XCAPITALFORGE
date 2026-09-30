@@ -1,0 +1,6 @@
+runtime/
+backups/
+__pycache__/
+*.pyc
+*.sqlite*
+.env

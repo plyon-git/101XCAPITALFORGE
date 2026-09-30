@@ -1,0 +1,25 @@
+[
+  {
+    "company": "ALLY CORPORATE FINANCE",
+    "field": "phone",
+    "only_if_value": "(833) 226-1520",
+    "value": "",
+    "reason": "Selected number is the parent fraud-reporting line, not the corporate-finance division.",
+    "source_url": "https://www.ally.com/contact-us/"
+  },
+  {
+    "company": "CAPITAL SOURCE GROUP",
+    "field": "email",
+    "only_if_value": "o@capitalsourcegroup.com",
+    "value": "info@capitalsourcegroup.com",
+    "reason": "Decode the explicitly displayed spaced letters i n f o in the official footer; original regex extraction was truncated.",
+    "source_url": "https://capitalsourcegroup.com/"
+  },
+  {
+    "company": "FASTFI",
+    "field": "category",
+    "value": "research_finance_role_unconfirmed",
+    "reason": "Current homepage describes business consulting; financing product and directory claim require review.",
+    "source_url": "https://www.fastfi.org/"
+  }
+]

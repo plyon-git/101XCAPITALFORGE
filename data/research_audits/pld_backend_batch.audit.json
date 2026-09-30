@@ -1,0 +1,14 @@
+{
+  "retrieved_at": "2026-09-30T03:58:49.782463+00:00",
+  "stopped_after_parent_target_reached": true,
+  "records": 464,
+  "with_phone_and_email": 177,
+  "with_phone": 222,
+  "with_email": 208,
+  "role_counts": {
+    "private_nonbank_lender_directory_claim": 321,
+    "financing_broker_or_intermediary": 3,
+    "nonbank_status_unconfirmed": 140
+  },
+  "documented_cash_capacity": 0
+}
