@@ -4,6 +4,7 @@ import http.client
 import io
 import json
 import sqlite3
+import subprocess
 import tempfile
 import threading
 import time
@@ -12,7 +13,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from app import App, create_server, password_ok
+from app import App, DEFAULT_DEAL, LEGACY_DEFAULT_DEAL, create_server, password_ok
 
 
 class CRMTests(unittest.TestCase):
@@ -244,6 +245,108 @@ class CRMTests(unittest.TestCase):
         with self.app.db() as db:
             db.executemany("INSERT INTO auth_failures(ip,occurred_at) VALUES(?,?)",[("127.0.0.1",time.time())]*15)
         self.assertEqual(self.request("POST","/api/login",{"email":"owner@example.com","password":"a-strong-test-password"})[0],429)
+
+    def test_trial_cohort_seed_preserves_existing_workflow_and_research(self):
+        self.setup_admin()
+        lead=self.create_lead(stage="terms",fit="strong",do_not_contact=True,min_check=250000,
+            cash_capacity=500000,capital_verification="documented",owner_id=1,
+            metadata={"prior_review":"Keep original research"})
+        review={"published_min":100000,"published_max":500000,"priority":1,
+            "conditions":"Confirm revenue eligibility","contact_url":"https://example.com/apply"}
+        rows=[{"company":"Example Capital","email":"team@example.com","min_check":100000,
+            "max_check":500000,"stage":"new","fit":"potential","do_not_contact":False,
+            "cash_capacity":None,"capital_verification":"unverified","owner_id":None,
+            "tags":["trial-capital-100k-500k"],"source_url":"https://example.com/working-capital",
+            "metadata":{"trial_capital_review":review}},
+            {"company":"New Trial Financier","email":"trial@new.example","min_check":100000,
+             "max_check":500000,"tags":["trial-capital-100k-500k"],"metadata":{"trial_capital_review":review}}]
+        path=Path(self.temp.name)/"trial_capital_directory.jsonl"
+        path.write_text("".join(json.dumps(row)+"\n" for row in rows),encoding="utf-8")
+        report=self.app.seed(path)
+        self.assertEqual((report["inserted"],report["merged"],report["invalid"]),(1,1,0))
+        updated=self.request("GET",f"/api/leads/{lead['id']}")[1]
+        self.assertEqual((updated["stage"],updated["fit"],updated["owner_id"]),("terms","strong",1))
+        self.assertTrue(updated["do_not_contact"])
+        self.assertEqual(updated["min_check"],250000)
+        self.assertEqual(updated["max_check"],500000)
+        self.assertEqual(updated["cash_capacity"],500000)
+        self.assertEqual(updated["capital_verification"],"documented")
+        self.assertEqual(updated["metadata"]["prior_review"],"Keep original research")
+        self.assertEqual(updated["metadata"]["trial_capital_review"],review)
+        report=self.app.seed(path)
+        self.assertEqual((report["inserted"],report["merged"],report["invalid"]),(0,2,0))
+        self.assertEqual(self.request("GET","/api/leads?q=trial-capital-100k-500k")[1]["total"],2)
+
+    def test_cli_imports_trial_cohort_on_startup_and_restart(self):
+        root=Path(__file__).resolve().parents[1]
+        runtime=Path(self.temp.name)/"cli-runtime"
+        path=Path(self.temp.name)/"startup-trial.jsonl"
+        path.write_text(json.dumps({"company":"Startup Trial Source","email":"startup@example.com",
+            "tags":["trial-capital-100k-500k"],"min_check":100000,"max_check":500000})+"\n",encoding="utf-8")
+        command=[sys.executable,str(root/"app.py"),"--port","0","--data-dir",str(runtime),
+            "--seed-file",str(Path(self.temp.name)/"missing-original-seed.jsonl"),
+            "--equity-seed-file","","--trial-seed-file",str(path)]
+        def start_and_stop():
+            process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+            try:
+                # Startup remains running; this bounded wait captures its flushed seed report.
+                process.communicate(timeout=1)
+            except subprocess.TimeoutExpired:
+                process.terminate()
+            finally:
+                output,error=process.communicate(timeout=5)
+            self.assertIn("CapitalForge by 101XVC",output,error)
+            return output
+        self.assertIn("1 added, 0 merged, 0 invalid",start_and_stop())
+        with sqlite3.connect(str(runtime/"capitalforge.sqlite3")) as db:
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM leads").fetchone()[0],1)
+            db.execute("UPDATE leads SET stage='terms',do_not_contact=1")
+        self.assertIn("0 added, 1 merged, 0 invalid",start_and_stop())
+        with sqlite3.connect(str(runtime/"capitalforge.sqlite3")) as db:
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM leads").fetchone()[0],1)
+            self.assertEqual(db.execute("SELECT stage,do_not_contact FROM leads").fetchone(),("terms",1))
+
+    def test_current_trial_mandate_optional_fields_and_range_validation(self):
+        self.setup_admin()
+        status,deal=self.request("GET","/api/deal")
+        self.assertEqual(status,200)
+        self.assertEqual(deal["mandate_version"],"2026-10-02")
+        self.assertEqual((deal["estimated_initial_fees_min"],deal["estimated_initial_fees"],deal["estimated_initial_fees_max"]),(3900000,5000000,7200000))
+        self.assertIsNone(deal["target_return_percent"])
+        self.assertIsNone(deal["fulfillment_days"])
+        self.assertIsNone(deal["follow_on_estimated_fees"])
+        for payload in ({"estimated_initial_fees_min":6000000},
+            {"estimated_initial_fees_max":4900000},{"estimated_initial_fees":"NaN"},
+            {"estimated_initial_fees_min":-1},{"target_months_min":12,"target_months_max":6}):
+            with self.subTest(payload=payload):
+                self.assertEqual(self.request("PATCH","/api/deal",payload)[0],400)
+        self.assertEqual(self.request("PATCH","/api/deal",[])[0],400)
+        self.assertEqual(self.request("GET","/api/deal")[1],deal)
+        status,updated=self.request("PATCH","/api/deal",{"estimated_initial_fees_min":4000000,
+            "estimated_initial_fees":5000000,"estimated_initial_fees_max":6000000,
+            "target_return_percent":25,"target_months_min":6,"target_months_max":12})
+        self.assertEqual(status,200,updated)
+        status,updated=self.request("PATCH","/api/deal",{"target_return_percent":None,
+            "target_months_min":"","target_months_max":None})
+        self.assertEqual(status,200,updated)
+        self.assertIsNone(updated["target_return_percent"])
+        self.assertIsNone(updated["target_months_min"])
+        self.assertIsNone(updated["target_months_max"])
+
+    def test_only_exact_legacy_mandate_migrates_once(self):
+        with self.app.db() as db:
+            db.execute("UPDATE settings SET value=? WHERE key='deal'",(json.dumps(LEGACY_DEFAULT_DEAL),))
+        self.app.initialize()
+        self.app.initialize()
+        with self.app.db() as db:
+            self.assertEqual(json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0]),DEFAULT_DEAL)
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM audit WHERE action='migrate' AND entity_type='deal'").fetchone()[0],1)
+            custom={**LEGACY_DEFAULT_DEAL,"notes":"Retain this customized mandate"}
+            db.execute("UPDATE settings SET value=? WHERE key='deal'",(json.dumps(custom),))
+        self.app.initialize()
+        with self.app.db() as db:
+            self.assertEqual(json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0]),custom)
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM audit WHERE action='migrate' AND entity_type='deal'").fetchone()[0],1)
 
     def test_remote_hostname_bootstrap_is_blocked_even_through_local_proxy(self):
         self.app.allowed_hosts.add("crm.example.com")

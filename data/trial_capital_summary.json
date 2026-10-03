@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-10-02",
+  "cohort": "trial-100k-500k-2026-10-02",
+  "reviewed_routes": 35,
+  "brand_or_program_routes": {
+    "equity_private": 18,
+    "business_debt": 16,
+    "program_channel": 1
+  },
+  "provider_or_affiliation_groups": 32,
+  "routes_with_public_email": 13,
+  "routes_with_public_phone": 18,
+  "routes_with_both_public_contacts": 9,
+  "published_product_ranges_or_minimums_overlapping_request": 27,
+  "confirmed_deal_approvals": 0,
+  "documented_available_cash": 0,
+  "notes": "Routes include conditional sector/eligibility prospects and multiple products at one provider. Counts do not represent independent funding commitments."
+}

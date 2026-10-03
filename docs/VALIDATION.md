@@ -13,3 +13,13 @@ Desktop views were inspected at 1440×1040. Mobile login, navigation, the direct
 Assigned-owner labels currently display the user ID when a name is unavailable; the owner dropdown and persisted assignment work correctly. Live website hosting and real financier qualification were outside this local validation. No outreach was sent.
 
 The complete frozen directory was then imported into a fresh isolated database. The measured count, contact-pair count, zero invalid rows and zero unexpected merges are recorded in `FINAL_DATA_VALIDATION.json`. This validates file/schema compatibility; it does not validate liquidity, recipient authority or financing acceptance.
+
+## October 2 trial funding update
+
+- Sixteen backend and startup integration checks pass, including mandate range validation, exact legacy-default migration, preservation of customized mandates, trial cohort startup/restart import, notes/tasks, roles, authentication and backup restoration.
+- JavaScript syntax and Git whitespace checks pass.
+- Full actual data import: 6,563 original records inserted; 233 equity records inserted and two merged; 35 trial review routes added through 23 insertions and 12 merges, zero invalid rows.
+- Cohort search data contains all 35 reviewed routes. A repeat trial import adds zero records, merges all 35 and preserves a recorded stage and contact suppression.
+- Reviewed route data includes 18 equity/private routes, 16 business-debt routes and one SBA program channel. Provider/affiliation groups total 32; these are research channels, not confirmed allocations.
+- Public-source review checked current mandates and contact routes. CEF's 90-120-day timeline, industry exclusions and program-specific contact are recorded. Bluevine partner loans and OnDeck/Headway access are distinguished from independent provider commitments.
+- A local portal/startup check ran against a temporary database only.

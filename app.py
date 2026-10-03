@@ -39,7 +39,7 @@ COOKIE_NAME = "capitalforge_session"
 PASSWORD_ITERATIONS = 600_000
 MAX_BODY = 20 * 1024 * 1024
 SESSION_LIFETIME = 12 * 3600
-DEFAULT_DEAL = {
+LEGACY_DEFAULT_DEAL = {
     "title": "101XVC 500-property fulfillment financing", "raise_min": 100000, "raise_max": 500000,
     "equity_raise": 500000, "equity_percent": 9.3, "target_return_percent": 50,
     "target_months_min": 6, "target_months_max": 12, "initial_property_count": 500,
@@ -49,6 +49,34 @@ DEFAULT_DEAL = {
     "terms_status": "User-supplied proposal; counterparty size and economics not independently verified; returns are targets, not guarantees.",
     "notes": "Evaluate unsecured operating capital, receivables/contract financing and equity appetite separately. Verify cash availability of at least $500,000 through appropriate diligence."
 }
+DEFAULT_DEAL = {
+    "mandate_version": "2026-10-02",
+    "title": "101XVC 500-closed-property trial financing",
+    "raise_min": 100000, "raise_max": 500000,
+    "equity_raise": 500000, "equity_percent": 9.3,
+    "equity_status": "Prior proposal: $500,000 for 9.3%; not confirmed as revised financing terms.",
+    "target_return_percent": None, "target_months_min": None, "target_months_max": None,
+    "initial_property_count": 500,
+    "trial_state_allocation": "100 closed properties each in Texas, Arizona, North Carolina, Illinois and Florida",
+    "estimated_initial_fees_min": 3900000, "estimated_initial_fees": 5000000,
+    "estimated_initial_fees_max": 7200000,
+    "projection_basis": "User estimate of trial proceeds; gross versus net basis has not been specified. Not contract face value, collected cash or established net profit.",
+    "follow_on_estimated_fees": None,
+    "follow_on_trigger": "Good faith discussions at the earlier of the 200th closed property or 450th qualifying submission",
+    "continuation_property_count": 3000, "follow_on_property_count": 11250,
+    "follow_on_remaining_property_count": 8250,
+    "continuation_state_allocation": "200 closed properties each in Alabama, Arizona, Colorado, Florida, Georgia, Illinois, Indiana, Kansas, Missouri, North Carolina, Oklahoma, South Carolina, Tennessee, Texas and Utah",
+    "follow_on_status": "Article 15 is non-binding except for good faith discussions. Proposed continuation and Contract 2 require definitive documents. Contract 2's proposed 11,250 closed properties include the 3,000-property continuation, leaving 8,250 thereafter.",
+    "counterparty_description": "Acquisition Holdings, LLC / New Western",
+    "fulfillment_days": None,
+    "collateral": "Not secured against individual properties; any business-asset or fee security requires separate review",
+    "terms_status": "Current $100,000-$500,000 raise; financing structure, return and timing remain to be negotiated. Trial projection is a user estimate.",
+    "notes": "Use of proceeds: marketing and acquisition execution for the 500-closed-property trial. Evaluate working capital, equity and permitted fee/receivables financing separately. Confirm gross versus net projection basis, acquisition costs, closing schedule and assignment-fee cash collections before underwriting. Document capacity for the requested $100,000-$500,000 allocation."
+}
+OPTIONAL_DEAL_NUM_FIELDS = frozenset(("target_return_percent", "target_months_min", "target_months_max",
+    "fulfillment_days", "follow_on_estimated_fees", "estimated_initial_fees_min", "estimated_initial_fees_max"))
+DEAL_NUM_FIELDS = frozenset(key for key, value in DEFAULT_DEAL.items()
+    if isinstance(value, (float, int))) | OPTIONAL_DEAL_NUM_FIELDS
 
 
 def utcnow():
@@ -209,6 +237,11 @@ class App:
             INSERT OR IGNORE INTO settings(key,value) VALUES('schema_version','1');
             """)
             db.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('deal',?)", (json_text(DEFAULT_DEAL),))
+            # Update only the exact original defaults. Any user change retains the saved mandate.
+            saved_deal = json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0])
+            if saved_deal == LEGACY_DEFAULT_DEAL:
+                db.execute("UPDATE settings SET value=? WHERE key='deal'", (json_text(DEFAULT_DEAL),))
+                self.audit(db, None, "migrate", "deal", detail={"mandate_version": DEFAULT_DEAL["mandate_version"], "reason": "Unchanged legacy defaults"})
             if "metadata" not in {row[1] for row in db.execute("PRAGMA table_info(leads)")}:
                 db.execute("ALTER TABLE leads ADD COLUMN metadata TEXT NOT NULL DEFAULT '{}'")
         try:
@@ -788,9 +821,14 @@ class Handler(BaseHTTPRequestHandler):
             if method == "PATCH":
                 user, _ = self.auth(db,("admin",),mutation=True)
                 payload = self.body()
+                if not isinstance(payload, dict):
+                    raise ApiError(400, "A JSON object is required")
                 for key in DEFAULT_DEAL:
                     if key in payload:
-                        if isinstance(DEFAULT_DEAL[key],(float,int)):
+                        if key in DEAL_NUM_FIELDS:
+                            if payload[key] in (None, "") and key in OPTIONAL_DEAL_NUM_FIELDS:
+                                deal[key] = None
+                                continue
                             try:
                                 value = float(payload[key])
                             except (TypeError,ValueError):
@@ -800,8 +838,14 @@ class Handler(BaseHTTPRequestHandler):
                             deal[key] = value
                         else:
                             deal[key] = str(payload[key])[:20000]
-                if deal["raise_min"] > deal["raise_max"] or deal["target_months_min"] > deal["target_months_max"] or deal["equity_percent"] > 100:
+                if deal["raise_min"] > deal["raise_max"] or deal["equity_percent"] > 100:
                     raise ApiError(400,"Inconsistent deal ranges")
+                for lower, upper in (("target_months_min", "target_months_max"),
+                    ("estimated_initial_fees_min", "estimated_initial_fees"),
+                    ("estimated_initial_fees", "estimated_initial_fees_max"),
+                    ("estimated_initial_fees_min", "estimated_initial_fees_max")):
+                    if deal.get(lower) is not None and deal.get(upper) is not None and deal[lower] > deal[upper]:
+                        raise ApiError(400,"Inconsistent deal ranges")
                 db.execute("UPDATE settings SET value=? WHERE key='deal'",(json_text(deal),))
                 self.app.audit(db,user["id"],"update","deal",detail={"fields":list(payload)})
                 db.commit()
@@ -1066,15 +1110,17 @@ def main():
     parser.add_argument("--data-dir",default=os.environ.get("CAPITALFORGE_DATA_DIR",str(ROOT/"runtime")))
     parser.add_argument("--seed-file",default=str(ROOT/"data"/"data_lenders.jsonl"))
     parser.add_argument("--equity-seed-file",default=str(ROOT/"data"/"equity_directory.jsonl"),help="Optional equity investor research seed; use an empty path to skip")
+    parser.add_argument("--trial-seed-file",default=str(ROOT/"data"/"trial_capital_directory.jsonl"),help="Optional $100K-$500K trial funding research seed; use an empty path to skip")
     parser.add_argument("--open-browser",action="store_true",help="Open the local portal after startup")
     args=parser.parse_args()
     allowed=[h.strip().lower() for h in os.environ.get("CAPITALFORGE_ALLOWED_HOSTS","localhost,127.0.0.1,::1").split(",") if h.strip()]
     app=App(args.data_dir,allowed,os.environ.get("CAPITALFORGE_SECURE_COOKIES")=="1",os.environ.get("CAPITALFORGE_BOOTSTRAP_TOKEN"))
     report=app.seed(args.seed_file)
-    if args.equity_seed_file:
-        equity_report=app.seed(args.equity_seed_file)
-        for key in ("inserted", "merged", "invalid"):
-            report[key]+=equity_report[key]
+    for optional_seed in (args.equity_seed_file, args.trial_seed_file):
+        if optional_seed:
+            optional_report=app.seed(optional_seed)
+            for key in ("inserted", "merged", "invalid"):
+                report[key]+=optional_report[key]
     server=create_server(app,args.host,args.port)
     print(f"CapitalForge by 101XVC\nOpen http://{args.host}:{args.port}/app\nData: {app.data_dir}\nSeed import: {report['inserted']} added, {report['merged']} merged, {report['invalid']} invalid",flush=True)
     if args.host not in ("127.0.0.1","localhost","::1"):
