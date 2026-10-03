@@ -13,7 +13,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from app import App, DEFAULT_DEAL, LEGACY_DEFAULT_DEAL, create_server, password_ok
+from app import App, CONTRACT_ECONOMICS, DEFAULT_DEAL, LEGACY_DEFAULT_DEAL, PRIOR_TRIAL_DEFAULT_DEAL, create_server, password_ok
 
 
 class CRMTests(unittest.TestCase):
@@ -310,14 +310,22 @@ class CRMTests(unittest.TestCase):
         self.setup_admin()
         status,deal=self.request("GET","/api/deal")
         self.assertEqual(status,200)
-        self.assertEqual(deal["mandate_version"],"2026-10-02")
+        self.assertEqual(deal["mandate_version"],"2026-10-02-economics")
         self.assertEqual((deal["estimated_initial_fees_min"],deal["estimated_initial_fees"],deal["estimated_initial_fees_max"]),(3900000,5000000,7200000))
+        self.assertEqual(deal["contract_base_gross_assignment_fees"],5000000)
+        self.assertEqual(deal["contract_base_gross_assignment_fees"],deal["contract_estimated_gross_profit_threshold"]*deal["contract_trial_closed_properties"]*deal["contract_assignment_share_percent"]/100)
+        self.assertIn("2.14(d)",deal["contract_source_refs"])
+        self.assertIn("Amendment sections 1.A and 3",deal["contract_source_refs"])
+        self.assertIn("before its own acquisition and operating costs",deal["projection_basis"])
+        self.assertIn("actual Gross Transaction Spread",deal["contract_cash_collection_basis"])
         self.assertIsNone(deal["target_return_percent"])
         self.assertIsNone(deal["fulfillment_days"])
         self.assertIsNone(deal["follow_on_estimated_fees"])
         for payload in ({"estimated_initial_fees_min":6000000},
             {"estimated_initial_fees_max":4900000},{"estimated_initial_fees":"NaN"},
-            {"estimated_initial_fees_min":-1},{"target_months_min":12,"target_months_max":6}):
+            {"estimated_initial_fees_min":-1},{"target_months_min":12,"target_months_max":6},
+            {"contract_estimated_gross_profit_threshold":25000},{"contract_base_gross_assignment_fees":6250000},
+            {"contract_trial_closed_properties":600},{"contract_assignment_share_percent":60}):
             with self.subTest(payload=payload):
                 self.assertEqual(self.request("PATCH","/api/deal",payload)[0],400)
         self.assertEqual(self.request("PATCH","/api/deal",[])[0],400)
@@ -332,6 +340,10 @@ class CRMTests(unittest.TestCase):
         self.assertIsNone(updated["target_return_percent"])
         self.assertIsNone(updated["target_months_min"])
         self.assertIsNone(updated["target_months_max"])
+        status,updated=self.request("PATCH","/api/deal",{"estimated_initial_fees":5500000})
+        self.assertEqual(status,200,updated)
+        self.assertEqual(updated["estimated_initial_fees"],5500000)
+        self.assertEqual(updated["contract_base_gross_assignment_fees"],5000000)
 
     def test_only_exact_legacy_mandate_migrates_once(self):
         with self.app.db() as db:
@@ -340,6 +352,27 @@ class CRMTests(unittest.TestCase):
         self.app.initialize()
         with self.app.db() as db:
             self.assertEqual(json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0]),DEFAULT_DEAL)
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM audit WHERE action='migrate' AND entity_type='deal'").fetchone()[0],1)
+
+    def test_prior_trial_defaults_migrate_without_changing_customized_storage(self):
+        with self.app.db() as db:
+            db.execute("UPDATE settings SET value=? WHERE key='deal'",(json.dumps(PRIOR_TRIAL_DEFAULT_DEAL),))
+        self.app.initialize()
+        self.app.initialize()
+        with self.app.db() as db:
+            self.assertEqual(json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0]),DEFAULT_DEAL)
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM audit WHERE action='migrate' AND entity_type='deal'").fetchone()[0],1)
+            custom={**PRIOR_TRIAL_DEFAULT_DEAL,"notes":"Keep this scenario"}
+            db.execute("UPDATE settings SET value=? WHERE key='deal'",(json.dumps(custom),))
+        self.app.initialize()
+        self.setup_admin()
+        returned=self.request("GET","/api/deal")[1]
+        self.assertEqual(returned["notes"],"Keep this scenario")
+        self.assertEqual(returned["contract_base_gross_assignment_fees"],5000000)
+        for key,value in CONTRACT_ECONOMICS.items():
+            self.assertEqual(returned[key],value)
+        with self.app.db() as db:
+            self.assertEqual(json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0]),custom)
             self.assertEqual(db.execute("SELECT COUNT(*) FROM audit WHERE action='migrate' AND entity_type='deal'").fetchone()[0],1)
             custom={**LEGACY_DEFAULT_DEAL,"notes":"Retain this customized mandate"}
             db.execute("UPDATE settings SET value=? WHERE key='deal'",(json.dumps(custom),))

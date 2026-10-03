@@ -49,7 +49,7 @@ LEGACY_DEFAULT_DEAL = {
     "terms_status": "User-supplied proposal; counterparty size and economics not independently verified; returns are targets, not guarantees.",
     "notes": "Evaluate unsecured operating capital, receivables/contract financing and equity appetite separately. Verify cash availability of at least $500,000 through appropriate diligence."
 }
-DEFAULT_DEAL = {
+PRIOR_TRIAL_DEFAULT_DEAL = {
     "mandate_version": "2026-10-02",
     "title": "101XVC 500-closed-property trial financing",
     "raise_min": 100000, "raise_max": 500000,
@@ -72,6 +72,21 @@ DEFAULT_DEAL = {
     "collateral": "Not secured against individual properties; any business-asset or fee security requires separate review",
     "terms_status": "Current $100,000-$500,000 raise; financing structure, return and timing remain to be negotiated. Trial projection is a user estimate.",
     "notes": "Use of proceeds: marketing and acquisition execution for the 500-closed-property trial. Evaluate working capital, equity and permitted fee/receivables financing separately. Confirm gross versus net projection basis, acquisition costs, closing schedule and assignment-fee cash collections before underwriting. Document capacity for the requested $100,000-$500,000 allocation."
+}
+CONTRACT_ECONOMICS = {
+    "contract_estimated_gross_profit_threshold": 20000,
+    "contract_trial_closed_properties": 500,
+    "contract_assignment_share_percent": 50,
+    "contract_base_gross_assignment_fees": 20000 * 500 * 50 / 100,
+    "contract_source_refs": "Original Agreement sections 2.14(d), 2.23, 2.19 and 5.3; Amendment sections 1.A and 3",
+    "contract_cash_collection_basis": "Actual assignment fees equal 50% of the actual Gross Transaction Spread at closing. Lower underwriting thresholds require written approval. 101XVC bears its own acquisition and operating costs; its fee is not net of Acquisition Holdings' costs."
+}
+DEFAULT_DEAL = {
+    **PRIOR_TRIAL_DEFAULT_DEAL, **CONTRACT_ECONOMICS,
+    "mandate_version": "2026-10-02-economics",
+    "projection_basis": "Contract-derived underwriting base: $20,000 Estimated Gross Transaction Profit threshold x 500 closed trial properties x 50% assignment fee share = $5,000,000 gross assignment fees to 101XVC before its own acquisition and operating costs. The $3.9M-$7.2M range is a separate user sensitivity scenario, with $5M supplied average.",
+    "terms_status": "Current $100,000-$500,000 raise; financing structure, return and timing remain to be negotiated. The $5M gross assignment fee underwriting base follows the contract formula; actual collections follow realized spreads at closing.",
+    "notes": "Use of proceeds: marketing and acquisition execution for 500 closed trial properties. Original Agreement section 2.14(d) sets at least $20,000 Estimated Gross Transaction Profit, subject to written exceptions; section 2.23 defines the estimated disposition price minus acquisition price; section 2.19 assigns 50% of the actual Gross Transaction Spread to 101XVC. Amendment section 1.A requires 500 closed properties, with its terms controlling under section 3. The contract-derived underwriting base is $5M gross assignment fees before 101XVC's own costs under original section 5.3. Confirm acquisition costs, actual closing spreads, collection timing and eligible security when underwriting the $100,000-$500,000 allocation."
 }
 OPTIONAL_DEAL_NUM_FIELDS = frozenset(("target_return_percent", "target_months_min", "target_months_max",
     "fulfillment_days", "follow_on_estimated_fees", "estimated_initial_fees_min", "estimated_initial_fees_max"))
@@ -239,9 +254,9 @@ class App:
             db.execute("INSERT OR IGNORE INTO settings(key,value) VALUES('deal',?)", (json_text(DEFAULT_DEAL),))
             # Update only the exact original defaults. Any user change retains the saved mandate.
             saved_deal = json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0])
-            if saved_deal == LEGACY_DEFAULT_DEAL:
+            if saved_deal in (LEGACY_DEFAULT_DEAL, PRIOR_TRIAL_DEFAULT_DEAL):
                 db.execute("UPDATE settings SET value=? WHERE key='deal'", (json_text(DEFAULT_DEAL),))
-                self.audit(db, None, "migrate", "deal", detail={"mandate_version": DEFAULT_DEAL["mandate_version"], "reason": "Unchanged legacy defaults"})
+                self.audit(db, None, "migrate", "deal", detail={"mandate_version": DEFAULT_DEAL["mandate_version"], "reason": "Unchanged prior defaults"})
             if "metadata" not in {row[1] for row in db.execute("PRAGMA table_info(leads)")}:
                 db.execute("ALTER TABLE leads ADD COLUMN metadata TEXT NOT NULL DEFAULT '{}'")
         try:
@@ -816,13 +831,15 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/deal":
             deal = json.loads(db.execute("SELECT value FROM settings WHERE key='deal'").fetchone()[0])
             if method == "GET":
-                self.respond(200,deal)
+                self.respond(200,{**deal, **CONTRACT_ECONOMICS})
                 return
             if method == "PATCH":
                 user, _ = self.auth(db,("admin",),mutation=True)
                 payload = self.body()
                 if not isinstance(payload, dict):
                     raise ApiError(400, "A JSON object is required")
+                if any(key in payload for key in CONTRACT_ECONOMICS):
+                    raise ApiError(400, "Contract source inputs and calculated underwriting base are read-only")
                 for key in DEFAULT_DEAL:
                     if key in payload:
                         if key in DEAL_NUM_FIELDS:
@@ -849,7 +866,7 @@ class Handler(BaseHTTPRequestHandler):
                 db.execute("UPDATE settings SET value=? WHERE key='deal'",(json_text(deal),))
                 self.app.audit(db,user["id"],"update","deal",detail={"fields":list(payload)})
                 db.commit()
-                self.respond(200,deal)
+                self.respond(200,{**deal, **CONTRACT_ECONOMICS})
                 return
         if path == "/api/tasks":
             if method == "GET":

@@ -42,7 +42,7 @@ def main():
             dict(published_range=range_text(row),source_urls=' | '.join(row['source_urls']),capital_verification='Unverified; no offered/available amount confirmed'))
     (ROOT/'data/trial_capital_directory.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in crm))
     with (ROOT/'downloads/CapitalForge_Trial_Capital_100K_500K.csv').open('w',newline='',encoding='utf-8-sig') as f:
-        w=csv.DictWriter(f,fieldnames=list(exported[0]))
+        w=csv.DictWriter(f,fieldnames=list(exported[0]),lineterminator="\n")
         w.writeheader()
         w.writerows({key: ("\'"+value if isinstance(value,str) and value[:1] in ("=","+","-","@") else value) for key,value in row.items()} for row in exported)
     provider_groups={row['affiliation_group'] for row in rows if row['source_group']!='program_channel'}

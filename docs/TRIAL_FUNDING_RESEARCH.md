@@ -8,9 +8,15 @@ The supplied October 2 amendment states trial completion at the 500th closed pro
 
 Article XV describes continuation and Contract 2 as a non-binding expression of interest requiring definitive agreements. The proposed continuation is 3,000 closed properties across 15 states. Those count toward the proposed 11,250 Contract 2 total, leaving 8,250 after continuation. The source has an inconsistent example in Section 15.4(f): it uses 250 state closings and credits 40 without a clear arithmetic bridge. Do not reuse that example in underwriting before reconciliation.
 
-The user's trial projection is $3.9 million to $7.2 million, with a supplied average of $5 million. For 500 closings, these correspond to $7,800, $10,000 and $14,400 per closing. The amendment does not establish a dollar fee award, forecast margin or collection schedule. Confirm whether the projection represents 101XVC's assignment fees or total transaction spreads using the original agreement and underwriting model. Net profit follows after acquisition and operating expenses.
+The original agreement and amendment jointly establish a $5 million gross assignment-fee underwriting base for 101XVC:
 
-The public repository contains code and public-source financing research. The supplied signed agreement is not redistributed here.
+**$20,000 estimated gross transaction profit per qualifying deal x 500 closed properties x 50% = $5,000,000.**
+
+Original Section 2.14(d) sets the per-deal underwriting threshold, with lower amounts requiring written approval. Section 2.23 defines the estimate on the same disposition-price-minus-acquisition-price basis as the actual gross transaction spread, and Section 2.19 gives 101XVC one-half of that spread. The amendment supplies the 500-closing completion measure and controls conflicting original wording. At the threshold, combined underwritten spread is $10 million and 101XVC's share is $10,000 per closed property.
+
+The user's $3.9 million to $7.2 million range remains an assignment-fee sensitivity range around that agreement-derived $5 million base. These are gross 101XVC assignment fees before its acquisition and operating expenses. Section 5.3 allocates each party its own costs; Acquisition Holdings' allocated expenses are not netted before the agreed split. Actual fee payments follow realized spreads and closings; the underwriting base does not fix each transaction's realized outcome.
+
+The public repository contains code and public-source financing research. The supplied signed agreements are not redistributed here.
 
 ## Use the sourcing data
 

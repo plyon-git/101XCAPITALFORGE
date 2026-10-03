@@ -23,3 +23,9 @@ The complete frozen directory was then imported into a fresh isolated database. 
 - Reviewed route data includes 18 equity/private routes, 16 business-debt routes and one SBA program channel. Provider/affiliation groups total 32; these are research channels, not confirmed allocations.
 - Public-source review checked current mandates and contact routes. CEF's 90-120-day timeline, industry exclusions and program-specific contact are recorded. Bluevine partner loans and OnDeck/Headway access are distinguished from independent provider commitments.
 - A local portal/startup check ran against a temporary database only.
+
+## October 3 agreement economics correction
+
+- Both agreements were read together: original sections 2.14(d), 2.23 and 2.19 supply the $20,000 estimated gross transaction profit threshold and 50% assignment share; amendment sections 1.A and 3 supply the controlling 500-closing trial. The resulting underwriting base is $5,000,000 in gross 101XVC assignment fees before its own costs under original section 5.3.
+- Seventeen integration tests pass, including read-only contract inputs, the separate sensitivity assumptions, exact prior-default migration and preservation of customized stored mandates. JavaScript syntax and Git whitespace checks pass.
+- The canonical sourcing data, generated directory/export, app mandate and documentation use the same agreement-derived calculation. The 35 financing routes and their qualification requirements remain in place.

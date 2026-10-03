@@ -788,7 +788,7 @@
       ],
       "fit_reason": "Payroll, marketing and cash-flow buffer explicitly supported.",
       "eligibility": "Specific loan criteria: US operation, 6+ months, $20K+ average monthly deposits both three-month average and latest month, business account, 550+ FICO. Generic footer shows looser thresholds for other products.",
-      "blockers": "Repayment begins on frequent schedule regardless of trial projections. No approval based solely on unsigned/future receivables. Need total cash received, total repayment and dated schedule.",
+      "blockers": "Repayment begins on frequent schedule regardless of trial projections. The signed trial supports the underwriting case; future fees are not current bank deposits or earned invoices. Need total cash received, total repayment and dated schedule.",
       "collateral_guarantee": "Business collateral may apply for larger loans; PG terms not established by page.",
       "pricing": "6-24 months; daily/weekly payments; factor rates starting 1.11 and most deals 2.5% origination fee. Factor rate is not APR.",
       "evidence": "Official product-specific requirements prioritized over generic footer",
@@ -1000,7 +1000,20 @@
     "projection_min": 3900000,
     "projection_average": 5000000,
     "projection_max": 7200000,
-    "basis": "User supplied; gross/net meaning to confirm"
+    "basis": "Gross 101XVC assignment fees before its acquisition and operating costs; $5M underwriting base derived from original agreement plus amendment.",
+    "underwritten_gross_profit_per_property": 20000,
+    "assignment_fee_share_percent": 50,
+    "underwritten_gross_fee_per_closing": 10000,
+    "underwritten_combined_trial_spread": 10000000,
+    "underwritten_trial_assignment_fees": 5000000,
+    "calculation": "$20,000 x 500 closed properties x 50% = $5,000,000 gross 101XVC assignment fees",
+    "source_sections": [
+      "Original agreement 2.14(d), 2.23: estimated profit threshold and definition",
+      "Original agreement 2.19: 50% gross-spread assignment fee",
+      "Amendment 1.A and 3: 500 closed properties and controlling effect",
+      "Original agreement 5.3: own allocated costs"
+    ],
+    "scenario_range_status": "User sensitivity range; $5M base supported by agreement underwriting terms. Actual fees follow realized spreads at closing."
   },
   "qualification_unknowns": [
     "101XVC age under current ownership",

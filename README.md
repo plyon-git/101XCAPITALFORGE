@@ -48,15 +48,18 @@ The current campaign seeks **$100,000 to $500,000 of operating capital** for acq
 | --- | --- |
 | Capital sought | $100,000 to $500,000 |
 | Trial completion | 500 closed properties, 100 per trial state |
-| User-projected trial collections | $3.9 million to $7.2 million; supplied average $5 million |
-| Forecast basis | Confirm whether figures mean 101XVC fees or another transaction measure; not net profit |
+| Contract underwriting threshold | At least $20,000 estimated gross transaction profit per qualifying deal, unless a lower amount is approved in writing |
+| 101XVC assignment-fee formula | 50% of the gross transaction spread |
+| Contract-derived trial underwriting base | $20,000 x 500 closings x 50% = $5,000,000 in gross 101XVC assignment fees |
+| User sensitivity range | $3.9 million to $7.2 million in trial assignment fees, with a $5 million base |
+| Cost basis | Before 101XVC acquisition and operating costs; each party bears its own allocated costs |
 | Prior equity proposal | $500,000 for 9.3%, subject to documentation |
 | Discussion milestone | Earlier of 200th closed property or 450th qualifying submission |
 | Proposed continuation | 3,000 closed properties, 200 each across 15 states |
 | Proposed Contract 2 | 11,250 closed properties including continuation; 8,250 remaining after it |
 | Successor status | Non-binding expression of interest requiring definitive agreements |
 
-The October 2, 2026 amendment changes the completion and negotiation milestones. It does not specify a dollar revenue award or payment timetable. The original agreement supplies the remaining economics and obligations. The signed source document is not included in this public repository.
+Read together, the original agreement and October 2 amendment establish the underwriting calculation: original Sections 2.14(d) and 2.23 supply the $20,000 per-deal estimated spread standard, Section 2.19 supplies the 50% assignment-fee formula, and the amendment replaces the trial completion measure with 500 closed properties. This produces $10 million in combined underwritten spread and $5 million in underwritten gross assignment fees to 101XVC. Actual assignment fees follow realized spreads at closing. The signed source documents are not included in this public repository.
 
 The current default workspace removes the older 60-day fulfillment target, 50% proposed debt-return default and $115 million successor-fee estimate. Completely unchanged old default mandates migrate; customized mandates remain intact. Review a customized installation under **Deal workspace > Edit mandate** before relying on its stored figures. Debt and equity remain separate financing paths, and documented eligibility requires financier review.
 
