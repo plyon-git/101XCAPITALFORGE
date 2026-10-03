@@ -1,0 +1,43 @@
+{
+  "startup": {
+    "data_lenders.jsonl": {
+      "inserted": 6563,
+      "merged": 0,
+      "invalid": 0,
+      "errors": []
+    },
+    "equity_directory.jsonl": {
+      "inserted": 233,
+      "merged": 2,
+      "invalid": 0,
+      "errors": []
+    },
+    "trial_capital_directory.jsonl": {
+      "inserted": 23,
+      "merged": 12,
+      "invalid": 0,
+      "errors": []
+    },
+    "investor2500_directory.jsonl": {
+      "inserted": 1569,
+      "merged": 931,
+      "invalid": 0,
+      "errors": []
+    }
+  },
+  "campaign_search_count": 2500,
+  "repeat": {
+    "inserted": 0,
+    "merged": 2500,
+    "invalid": 0,
+    "errors": []
+  },
+  "workflow_preserved": {
+    "stage": "contacted",
+    "do_not_contact": 1
+  },
+  "research_sha256": "aed51acf45e0c85c52d0d7918539287bd8971e66f926dbe76a845ff35fe0cee1",
+  "seed_sha256": "f02fe46bc6534899001f71b7f2a4a0c6cb1ff0a3778c28307efaee23ced85dfe",
+  "csv_rows": 2500,
+  "duplicate_populated_email_phone_website_fields": 0
+}

@@ -285,7 +285,7 @@ class CRMTests(unittest.TestCase):
             "tags":["trial-capital-100k-500k"],"min_check":100000,"max_check":500000})+"\n",encoding="utf-8")
         command=[sys.executable,str(root/"app.py"),"--port","0","--data-dir",str(runtime),
             "--seed-file",str(Path(self.temp.name)/"missing-original-seed.jsonl"),
-            "--equity-seed-file","","--trial-seed-file",str(path)]
+            "--equity-seed-file","","--trial-seed-file",str(path),"--investor-seed-file",""]
         def start_and_stop():
             process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             try:
@@ -305,6 +305,95 @@ class CRMTests(unittest.TestCase):
         with sqlite3.connect(str(runtime/"capitalforge.sqlite3")) as db:
             self.assertEqual(db.execute("SELECT COUNT(*) FROM leads").fetchone()[0],1)
             self.assertEqual(db.execute("SELECT stage,do_not_contact FROM leads").fetchone(),("terms",1))
+
+    def test_investor_campaign_seed_preserves_workflow_and_separate_reviews(self):
+        self.setup_admin()
+        prior_trial={"priority":"A - trial review","published_min":100000,"published_max":500000}
+        lead=self.create_lead(stage="terms",fit="strong",do_not_contact=True,owner_id=1,
+            min_check=250000,max_check=750000,cash_capacity=600000,capital_verification="documented",
+            metadata={"prior_review":"Original relationship research","trial_capital_review":prior_trial})
+        self.request("POST",f"/api/leads/{lead['id']}/notes",{"body":"Preserve negotiated terms"})
+        self.request("POST",f"/api/leads/{lead['id']}/tasks",{"title":"Review actual financing offer"})
+        campaign={"category":"Property operator","priority":"Operator qualification",
+            "contact_role":"Published company inbox; directness unconfirmed",
+            "check_status":"$100K-$500K ticket unpublished; confirm",
+            "fit_reason":"Property acquisition experience; corporate investment willingness unconfirmed",
+            "next_action":"Confirm interest in company-level trial execution capital",
+            "source_url":"https://example.com/properties","checked_at":"2026-10-02",
+            "contact_route":"team@example.com","contact_url":"https://example.com/contact",
+            "source_provenance":{"recorded_date":"2026-09-30","status":"retained public source"}}
+        rows=[{"company":"Example Capital","email":"team@example.com","stage":"new","fit":"potential",
+            "do_not_contact":False,"owner_id":None,"min_check":100000,"max_check":500000,
+            "cash_capacity":None,"capital_verification":"unverified",
+            "source_url":campaign["source_url"],"tags":["investor-2500-2026-10-02"],
+            "metadata":{"investor_campaign_review":campaign}},
+            {"company":"New Property Operator","email":"operator@new.example",
+            "fit":"potential","tags":["investor-2500-2026-10-02"],
+            "metadata":{"investor_campaign_review":campaign}}]
+        path=Path(self.temp.name)/"investor2500_directory.jsonl"
+        path.write_text("".join(json.dumps(row)+"\n" for row in rows),encoding="utf-8")
+        report=self.app.seed(path)
+        self.assertEqual((report["inserted"],report["merged"],report["invalid"]),(1,1,0))
+        report=self.app.seed(path)
+        self.assertEqual((report["inserted"],report["merged"],report["invalid"]),(0,2,0))
+        updated=self.request("GET",f"/api/leads/{lead['id']}")[1]
+        self.assertEqual((updated["stage"],updated["fit"],updated["owner_id"]),("terms","strong",1))
+        self.assertTrue(updated["do_not_contact"])
+        self.assertEqual((updated["min_check"],updated["max_check"]),(250000,750000))
+        self.assertEqual((updated["cash_capacity"],updated["capital_verification"]),(600000,"documented"))
+        self.assertEqual(updated["metadata"]["prior_review"],"Original relationship research")
+        self.assertEqual(updated["metadata"]["trial_capital_review"],prior_trial)
+        self.assertEqual(updated["metadata"]["investor_campaign_review"],campaign)
+        self.assertEqual(updated["notes"][0]["body"],"Preserve negotiated terms")
+        self.assertEqual(updated["tasks"][0]["title"],"Review actual financing offer")
+        self.assertTrue(any(source["url"]==campaign["source_url"] for source in updated["sources"]))
+        filtered=self.request("GET","/api/leads?q=investor-2500-2026-10-02")[1]
+        self.assertEqual(filtered["total"],2)
+
+    def test_cli_imports_investor_campaign_after_trial_on_startup_and_restart(self):
+        root=Path(__file__).resolve().parents[1]
+        runtime=Path(self.temp.name)/"campaign-cli-runtime"
+        original={"company":"Startup Campaign Operator","email":"campaign@example.com",
+            "metadata":{"prior_review":"Existing source context"},"min_check":250000,"max_check":750000}
+        trial_review={"priority":"Existing trial review","published_min":100000,"published_max":500000}
+        campaign_review={"category":"Property operator","check_status":"Investment ticket unconfirmed",
+            "source_url":"https://example.com/operator","source_provenance":"Retained source material"}
+        paths=[]
+        for filename,row in (("startup-original.jsonl",original),
+            ("startup-trial.jsonl",{"company":original["company"],"email":original["email"],
+                "tags":["trial-capital-100k-500k"],"metadata":{"trial_capital_review":trial_review}}),
+            ("startup-investors.jsonl",{"company":original["company"],"email":original["email"],
+                "tags":["investor-2500-2026-10-02"],"min_check":100000,"max_check":500000,
+                "metadata":{"investor_campaign_review":campaign_review}})):
+            path=Path(self.temp.name)/filename
+            path.write_text(json.dumps(row)+"\n",encoding="utf-8")
+            paths.append(path)
+        command=[sys.executable,str(root/"app.py"),"--port","0","--data-dir",str(runtime),
+            "--seed-file",str(paths[0]),"--equity-seed-file","",
+            "--trial-seed-file",str(paths[1]),"--investor-seed-file",str(paths[2])]
+        def start_and_stop():
+            process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+            try:
+                process.communicate(timeout=1)
+            except subprocess.TimeoutExpired:
+                process.terminate()
+            finally:
+                output,error=process.communicate(timeout=5)
+            self.assertIn("CapitalForge by 101XVC",output,error)
+            return output
+        self.assertIn("1 added, 2 merged, 0 invalid",start_and_stop())
+        with sqlite3.connect(str(runtime/"capitalforge.sqlite3")) as db:
+            db.execute("UPDATE leads SET stage='due_diligence',fit='strong',do_not_contact=1")
+        self.assertIn("0 added, 3 merged, 0 invalid",start_and_stop())
+        with sqlite3.connect(str(runtime/"capitalforge.sqlite3")) as db:
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM leads").fetchone()[0],1)
+            row=db.execute("SELECT stage,fit,do_not_contact,min_check,max_check,metadata,tags FROM leads").fetchone()
+        self.assertEqual(row[:5],("due_diligence","strong",1,250000,750000))
+        saved_metadata=json.loads(row[5])
+        self.assertEqual(saved_metadata["prior_review"],original["metadata"]["prior_review"])
+        self.assertEqual(saved_metadata["trial_capital_review"],trial_review)
+        self.assertEqual(saved_metadata["investor_campaign_review"],campaign_review)
+        self.assertEqual(set(json.loads(row[6])),{"trial-capital-100k-500k","investor-2500-2026-10-02"})
 
     def test_current_trial_mandate_optional_fields_and_range_validation(self):
         self.setup_admin()

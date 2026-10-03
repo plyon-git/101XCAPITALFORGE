@@ -62,6 +62,8 @@ Administrators manage the workspace and accounts. Analysts can edit records, res
 
 The search also supports company, contact, email, phone, state, financier type, and tags. Clear the cohort text to search the broader existing directory. Filters persist while moving between views, so clear any old stage or fit filters if results are unexpectedly missing.
 
+For the broader list of 2,500 potential capital prospects, search `investor-2500-2026-10-02` instead. Read **Prospect campaign review** in each record. It includes property investors and home-buying operators alongside private-capital and financing sources; the narrower trial cohort remains separately searchable. See [the campaign guide](INVESTOR_2500.md) for selection, counts and portable files.
+
 ## 5. Review and work a prospect
 
 1. In the open record, read **Trial funding review**, **Capacity & financing fit**, **Source evidence**, and **Original research context**. Open the recorded sources to check the program and contact route.

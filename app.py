@@ -1128,12 +1128,13 @@ def main():
     parser.add_argument("--seed-file",default=str(ROOT/"data"/"data_lenders.jsonl"))
     parser.add_argument("--equity-seed-file",default=str(ROOT/"data"/"equity_directory.jsonl"),help="Optional equity investor research seed; use an empty path to skip")
     parser.add_argument("--trial-seed-file",default=str(ROOT/"data"/"trial_capital_directory.jsonl"),help="Optional $100K-$500K trial funding research seed; use an empty path to skip")
+    parser.add_argument("--investor-seed-file",default=str(ROOT/"data"/"investor2500_directory.jsonl"),help="Optional prospect campaign research seed; use an empty path to skip")
     parser.add_argument("--open-browser",action="store_true",help="Open the local portal after startup")
     args=parser.parse_args()
     allowed=[h.strip().lower() for h in os.environ.get("CAPITALFORGE_ALLOWED_HOSTS","localhost,127.0.0.1,::1").split(",") if h.strip()]
     app=App(args.data_dir,allowed,os.environ.get("CAPITALFORGE_SECURE_COOKIES")=="1",os.environ.get("CAPITALFORGE_BOOTSTRAP_TOKEN"))
     report=app.seed(args.seed_file)
-    for optional_seed in (args.equity_seed_file, args.trial_seed_file):
+    for optional_seed in (args.equity_seed_file, args.trial_seed_file, args.investor_seed_file):
         if optional_seed:
             optional_report=app.seed(optional_seed)
             for key in ("inserted", "merged", "invalid"):

@@ -67,6 +67,8 @@ A $500,000 primary investment for 9.3% implies approximately $5.376 million post
 
 See [use steps](docs/USE_CAPITALFORGE.md) and [current capital sourcing](docs/TRIAL_FUNDING_RESEARCH.md). Search `trial-100k-500k-2026-10-02` in the lender directory to find the current reviewed cohort. Restart after updating the application and data files to import it automatically.
 
+The broader [2,500-prospect campaign](docs/INVESTOR_2500.md) adds property investors, cash-home-buying operators, private-money lenders and private operating-company capital prospects. Search `investor-2500-2026-10-02` for the complete selected cohort. Its separate **Prospect campaign review** shows the reason to approach each business, contact role, source and next step. The CSV and Excel files are under `downloads/`. Prospects whose tickets or operating-company investment appetite remain unknown are labeled accordingly.
+
 ## Qualify before moving a prospect forward
 
 Confirm the funding decision maker, direct-lender or broker status, available capital, actual check size, the treatment of contingent fees, acceptable collateral and guarantees, operating-company or equity eligibility, timing, and proposed economics. Save the response and source in the lead record. Use `documented` capital only when documentation supports actual available capital, rather than a reported fund-size screen.
