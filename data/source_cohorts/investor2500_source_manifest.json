@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-02",
+  "inputs": [
+    {
+      "filename": "tx_fl_investors.jsonl",
+      "rows": 354,
+      "sha256": "3577f6deeffa8cb93d4a5a3ee41cb8cdba0ed24ef599a4242fbf85f69356c2a7"
+    },
+    {
+      "filename": "nc_il_az_co_investors.jsonl",
+      "rows": 265,
+      "sha256": "dc03e9df9077bc9db4761b664c122d6b33fd59af0a6f996652849c24b008ed03"
+    },
+    {
+      "filename": "national_rest_directory_complete.jsonl",
+      "rows": 1619,
+      "sha256": "a43e2b32133918154d4b149a1f1c6ce79ed6f55e4341db4b05e05f5b6ffe019e"
+    },
+    {
+      "filename": "fl_chamber_investors.jsonl",
+      "rows": 18,
+      "sha256": "5e0f115419e857930171f98a572dc7e3361105849d7365c0046e3252d9fdb234"
+    },
+    {
+      "filename": "bulk_new_investors.jsonl",
+      "rows": 149,
+      "sha256": "4cc7919240d4ce8c8a9e5cbc795bc68596d680b82e1f3fb4b1683d814a6f9b17"
+    },
+    {
+      "filename": "broad_equity_new.jsonl",
+      "rows": 513,
+      "sha256": "b3eff2523727a1cf180aa4562474975c5bb951f9b8c48aca319b4213152dd9cb"
+    },
+    {
+      "filename": "sfr_contact_enriched.jsonl",
+      "rows": 44,
+      "sha256": "d7c3b559836611bb7262c323ff114639fc69bd23f99cbddd89b3323b429d7e45"
+    }
+  ],
+  "new_contact_candidate_rows": 2962,
+  "discovery_reserve_rows": 3733,
+  "new_contacts_sha256": "e3fabb772c5ee82bcd86f842958d25f02aba88e4629088e7d3050bd6b93b5243",
+  "public_facts_only": true,
+  "outreach_sent": false,
+  "final_qa": [
+    "Remove published form placeholders from emails",
+    "Business phones participate in alias/route deduplication",
+    "Primary direct-contact flag requires published email or phone",
+    "Remove agent-only KC Investor Specialist from operator cohort"
+  ]
+}
